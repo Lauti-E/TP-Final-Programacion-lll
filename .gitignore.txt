@@ -1,0 +1,17 @@
+# Godot
+.import/
+.export/
+*.tmp
+*.translation
+*.mono
+
+# IDEs
+.vscode/
+.idea/
+
+# Builds
+builds/
+
+# OS
+.DS_Store
+Thumbs.db
