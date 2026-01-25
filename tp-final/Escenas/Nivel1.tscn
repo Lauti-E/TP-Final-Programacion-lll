@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgm14y4lrexo"]
+
+[ext_resource type="PackedScene" uid="uid://csv6vgf1urjai" path="res://Escenas/jugador.tscn" id="1_ge3gi"]
+
+[node name="Nivel1" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 526.0
+offset_bottom = 436.0
+color = Color(0.7176471, 1, 1, 1)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_ge3gi")]
+position = Vector2(253, 194)
