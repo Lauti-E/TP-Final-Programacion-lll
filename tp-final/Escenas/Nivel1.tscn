@@ -1,15 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgm14y4lrexo"]
+[gd_scene load_steps=3 format=3 uid="uid://bgm14y4lrexo"]
 
 [ext_resource type="PackedScene" uid="uid://csv6vgf1urjai" path="res://Escenas/jugador.tscn" id="1_ge3gi"]
+[ext_resource type="Texture2D" uid="uid://bgeu5hxj73osq" path="res://Sprites/01.png" id="2_ryhbh"]
 
 [node name="Nivel1" type="Node"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -386.0
-offset_top = -169.0
-offset_right = 895.0
-offset_bottom = 554.0
-color = Color(0.7176471, 1, 1, 1)
+[node name="Jugador" parent="." instance=ExtResource("1_ge3gi")]
+scale = Vector2(0.5, 0.5)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_ge3gi")]
-position = Vector2(253, 194)
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("2_ryhbh")
