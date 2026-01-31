@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgm14y4lrexo"]
+[gd_scene load_steps=7 format=3 uid="uid://bgm14y4lrexo"]
 
 [ext_resource type="PackedScene" uid="uid://csv6vgf1urjai" path="res://Escenas/jugador.tscn" id="1_ge3gi"]
-[ext_resource type="Texture2D" uid="uid://bgeu5hxj73osq" path="res://Sprites/01.png" id="2_ryhbh"]
+[ext_resource type="Texture2D" uid="uid://bkw7mcnrtkvfa" path="res://Sprites/Fondo Galaxia/01.png" id="2_xs5ry"]
+[ext_resource type="Texture2D" uid="uid://dkvcevvcxce8o" path="res://Sprites/Fondo Galaxia/02.png" id="3_oc4j7"]
+[ext_resource type="Texture2D" uid="uid://p0d0p2ttl54k" path="res://Sprites/Fondo Galaxia/03.png" id="4_lrvun"]
+[ext_resource type="Texture2D" uid="uid://cgh7lrtafgiht" path="res://Sprites/Fondo Galaxia/04.png" id="5_bm0a4"]
+[ext_resource type="Texture2D" uid="uid://dj6jgkxitxb4c" path="res://Sprites/Fondo Galaxia/05.png" id="6_32uxx"]
 
 [node name="Nivel1" type="Node"]
 
@@ -13,4 +17,24 @@ scale = Vector2(0.5, 0.5)
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("2_ryhbh")
+texture = ExtResource("2_xs5ry")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("3_oc4j7")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture = ExtResource("4_lrvun")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource("5_bm0a4")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+texture = ExtResource("6_32uxx")
