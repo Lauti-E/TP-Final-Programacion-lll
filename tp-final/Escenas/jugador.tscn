@@ -8,6 +8,7 @@ radius = 8.999999
 height = 25.0
 
 [node name="Jugador" type="CharacterBody2D"]
+position = Vector2(640, 360)
 script = ExtResource("1_pd7u1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -20,3 +21,6 @@ scale = Vector2(5, 5)
 shape = SubResource("CapsuleShape2D_pd7u1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_right = 1280
+limit_bottom = 720
