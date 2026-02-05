@@ -1,6 +1,29 @@
 extends CharacterBody2D
 
+# Varibles de la nave.
 @export var velocidad := 500.0
+
+# Variables del proyectil.
+@export var escenaProyectil: PackedScene
+@export var cadenciaDisparo: float = 0.5
+
+var puedeDisparar: bool = true
+
+func _process(delta):
+	if Input.is_action_pressed("disparar") and puedeDisparar:
+		Disparar()
+
+func Disparar():
+	puedeDisparar = false
+	
+	var proyectil = escenaProyectil.instantiate()
+	proyectil.global_position = $"Punto Proyectil".global_position
+	
+	get_tree().current_scene.add_child(proyectil)
+	
+	await get_tree().create_timer(cadenciaDisparo).timeout
+	
+	puedeDisparar = true
 
 func _physics_process(_delta):
 	# Movimiento de la nave.

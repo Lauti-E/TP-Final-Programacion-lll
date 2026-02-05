@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0bgdmqtg1w43"]
+
+[ext_resource type="Script" uid="uid://bithmskwvircx" path="res://Scripts/proyectil.gd" id="1_m2ky0"]
+[ext_resource type="Texture2D" uid="uid://y8h31qu4graq" path="res://Sprites/Proyectil.png" id="2_tu2yt"]
+
+[node name="Proyectil" type="Area2D"]
+script = ExtResource("1_m2ky0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_tu2yt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

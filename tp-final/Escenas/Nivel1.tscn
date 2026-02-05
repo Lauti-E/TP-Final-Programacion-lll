@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bgm14y4lrexo"]
 
-[ext_resource type="PackedScene" uid="uid://csv6vgf1urjai" path="res://Escenas/jugador.tscn" id="1_ge3gi"]
+[ext_resource type="PackedScene" uid="uid://csv6vgf1urjai" path="res://Escenas/Jugador.tscn" id="1_ge3gi"]
 [ext_resource type="Texture2D" uid="uid://bkw7mcnrtkvfa" path="res://Sprites/Fondo Galaxia/01.png" id="2_xs5ry"]
 [ext_resource type="Texture2D" uid="uid://dkvcevvcxce8o" path="res://Sprites/Fondo Galaxia/02.png" id="3_oc4j7"]
 [ext_resource type="Texture2D" uid="uid://p0d0p2ttl54k" path="res://Sprites/Fondo Galaxia/03.png" id="4_lrvun"]
