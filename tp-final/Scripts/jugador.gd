@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var cadenciaDisparo: float = 0.5
 
 var puedeDisparar: bool = true
+var disparoIzq: bool = true # Variable para alternar el disparo.
 
 func _process(delta):
 	if Input.is_action_pressed("disparar") and puedeDisparar:
@@ -17,7 +18,15 @@ func Disparar():
 	puedeDisparar = false
 	
 	var proyectil = escenaProyectil.instantiate()
-	proyectil.global_position = $"Punto Proyectil".global_position
+	
+	# Elegir punto a disparar.
+	if disparoIzq:
+		proyectil.global_position = $"Punto Proyectil Izq".global_position
+	else:
+		proyectil.global_position = $"Punto Proyectil Der".global_position
+	
+	# Alternar para el próximo disparo.
+	disparoIzq = !disparoIzq
 	
 	get_tree().current_scene.add_child(proyectil)
 	
