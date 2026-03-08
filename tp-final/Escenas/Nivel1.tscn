@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgm14y4lrexo"]
+[gd_scene load_steps=8 format=3 uid="uid://bgm14y4lrexo"]
 
 [ext_resource type="PackedScene" uid="uid://csv6vgf1urjai" path="res://Escenas/Jugador.tscn" id="1_ge3gi"]
 [ext_resource type="Texture2D" uid="uid://bkw7mcnrtkvfa" path="res://Sprites/Fondo Galaxia/01.png" id="2_xs5ry"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://p0d0p2ttl54k" path="res://Sprites/Fondo Galaxia/03.png" id="4_lrvun"]
 [ext_resource type="Texture2D" uid="uid://cgh7lrtafgiht" path="res://Sprites/Fondo Galaxia/04.png" id="5_bm0a4"]
 [ext_resource type="Texture2D" uid="uid://dj6jgkxitxb4c" path="res://Sprites/Fondo Galaxia/05.png" id="6_32uxx"]
+[ext_resource type="Texture2D" uid="uid://f4ukpgylx0ct" path="res://Sprites/Personaje.png" id="7_oc4j7"]
 
 [node name="Nivel1" type="Node"]
 
@@ -53,3 +54,8 @@ motion_mirroring = Vector2(0, 720)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Estrellas Grandes"]
 texture = ExtResource("6_32uxx")
 centered = false
+
+[node name="Personaje" type="Sprite2D" parent="."]
+position = Vector2(767, 399)
+scale = Vector2(3, 3)
+texture = ExtResource("7_oc4j7")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://csv6vgf1urjai"]
 
-[ext_resource type="Texture2D" uid="uid://t5320eurgsua" path="res://Sprites/Nave.png" id="1_83bx5"]
 [ext_resource type="Script" uid="uid://dfw0ecxv5gxgb" path="res://Scripts/jugador.gd" id="1_pd7u1"]
 [ext_resource type="PackedScene" uid="uid://b0bgdmqtg1w43" path="res://Escenas/Proyectil.tscn" id="3_5jvw8"]
+[ext_resource type="Texture2D" uid="uid://bs1jldhyal17m" path="res://Sprites/Personaje02.png" id="3_8g85c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pd7u1"]
 radius = 8.999999
@@ -14,7 +14,8 @@ script = ExtResource("1_pd7u1")
 escenaProyectil = ExtResource("3_5jvw8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_83bx5")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_8g85c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.3841858e-07, 4.7683716e-07)
