@@ -16,6 +16,23 @@ escenaProyectil = ExtResource("3_5jvw8")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_8g85c")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": false,
+"pending_changes": {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"scale": "1.0",
+"slice": "",
+"source": "",
+"source_uid": -1
+},
+"slice_section": false
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.3841858e-07, 4.7683716e-07)
@@ -32,3 +49,5 @@ position = Vector2(-33, -15)
 
 [node name="Punto Proyectil Der" type="Marker2D" parent="."]
 position = Vector2(33, -14)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
