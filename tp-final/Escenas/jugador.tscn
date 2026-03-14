@@ -29,10 +29,7 @@ limit_left = 0
 limit_right = 1280
 limit_bottom = 720
 
-[node name="Punto Proyectil Izq" type="Marker2D" parent="."]
-position = Vector2(-33, -15)
-
 [node name="Punto Proyectil Der" type="Marker2D" parent="."]
-position = Vector2(33, -14)
+position = Vector2(46, -50)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
