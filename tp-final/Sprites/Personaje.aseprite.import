@@ -1,0 +1,25 @@
+[remap]
+
+importer="Aseprite AnimatedSprite2D Import"
+type="PackedScene"
+uid="uid://c0bno706jdmev"
+path="res://.godot/imported/Personaje.aseprite-94485d93407b548ba8a7e646c60d8ba6.scn"
+
+[deps]
+
+source_file="res://Sprites/Personaje.aseprite"
+dest_files=["res://.godot/imported/Personaje.aseprite-94485d93407b548ba8a7e646c60d8ba6.scn"]
+
+[params]
+
+spritesheet/layout=0
+spritesheet/fixed_rows_count=1
+spritesheet/fixed_columns_count=1
+spritesheet/border_type=0
+spritesheet/trim=false
+spritesheet/ignore_empty=false
+spritesheet/merge_duplicates=false
+animation/default/name="default"
+animation/default/direction=0
+animation/default/repeat_count=0
+animation/autoplay=""

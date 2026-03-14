@@ -14,6 +14,9 @@ func _process(delta):
 	if Input.is_action_pressed("disparar") and puedeDisparar:
 		Disparar()
 
+func _ready():
+	$Personaje.play("idle")
+
 func Disparar():
 	puedeDisparar = false
 	

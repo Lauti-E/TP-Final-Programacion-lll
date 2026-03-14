@@ -15,6 +15,10 @@ run/main_scene="uid://bgm14y4lrexo"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[aseprite_importers]
+
+aseprite_executable_path="C:\\Users\\lauta\\Downloads\\Aseprite\\Aseprite.exe"
+
 [display]
 
 window/size/viewport_width=1280
@@ -23,7 +27,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+enabled=PackedStringArray("res://addons/nklbdev.aseprite_importers/plugin.cfg")
 
 [input]
 
