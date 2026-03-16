@@ -12,6 +12,7 @@ height = 25.0
 position = Vector2(640, 360)
 script = ExtResource("1_pd7u1")
 escenaProyectil = ExtResource("3_5jvw8")
+cadenciaDisparo = 0.5
 
 [node name="Personaje" parent="." instance=ExtResource("3_8g85c")]
 scale = Vector2(0.5, 0.5)
