@@ -1,13 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0bgdmqtg1w43"]
 
 [ext_resource type="Script" uid="uid://bithmskwvircx" path="res://Scripts/proyectil.gd" id="1_m2ky0"]
-[ext_resource type="Texture2D" uid="uid://y8h31qu4graq" path="res://Sprites/Proyectil.png" id="2_tu2yt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m2ky0"]
+load_path = "res://.godot/imported/Proyectil.png-fb9a51ea24257efef9500166db944031.ctex"
 
 [node name="Proyectil" type="Area2D"]
 script = ExtResource("1_m2ky0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("2_tu2yt")
+scale = Vector2(0.25, 0.25)
+texture = SubResource("CompressedTexture2D_m2ky0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
