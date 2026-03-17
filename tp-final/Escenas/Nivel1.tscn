@@ -11,7 +11,6 @@
 
 [node name="Jugador" parent="." instance=ExtResource("1_ge3gi")]
 scale = Vector2(0.5, 0.5)
-duracionDash = 3.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

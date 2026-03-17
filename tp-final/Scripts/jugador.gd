@@ -1,11 +1,20 @@
 extends CharacterBody2D
 
 # Varibles del personaje.
-@export var velocidad := 500.0
+@export var velocidad := 300.0
 
 # Variables del proyectil.
 @export var escenaProyectil: PackedScene
 @export var cadenciaDisparo: float = 0.2
+
+# Variables del dash.
+@export var velDash: float = 1200.0
+@export var durDash: float = 0.15
+@export var cooldownDash: float = 1
+
+var puedeDashear: bool = true
+var estaDasheando: bool = false
+var ultimaDir:= Vector2.ZERO
 
 # Variables de disparo.
 var puedeDisparar: bool = true
@@ -19,8 +28,17 @@ func _ready():
 
 func _physics_process(_delta):
 	var dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-		
-	velocity = dir * velocidad
+	
+	if dir != Vector2.ZERO:
+		ultimaDir = dir
+	
+	if Input.is_action_just_pressed("dash") and puedeDashear:
+		Dash()
+	
+	if estaDasheando:
+		velocity = ultimaDir * velDash
+	else:
+		velocity = dir * velocidad
 	
 	move_and_slide()
 	
@@ -51,3 +69,15 @@ func Disparar():
 	await get_tree().create_timer(cadenciaDisparo).timeout
 	
 	puedeDisparar = true
+
+func Dash():
+	puedeDashear = false
+	estaDasheando = true
+	
+	await get_tree().create_timer(durDash).timeout
+	
+	estaDasheando = false
+	
+	await get_tree().create_timer(cooldownDash).timeout
+	
+	puedeDashear = true
