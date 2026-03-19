@@ -12,6 +12,9 @@ extends CharacterBody2D
 @export var durDash: float = 0.15
 @export var cooldownDash: float = 1
 
+# Efecto de parpadeo para el cooldown del dash.
+@export var tiempoParpadeo: float = 0.2
+
 var puedeDashear: bool = true
 var estaDasheando: bool = false
 var ultimaDir:= Vector2.ZERO
@@ -78,6 +81,30 @@ func Dash():
 	
 	estaDasheando = false
 	
+	# Iniciar parpadeo del cooldown.
+	CooldownParpadeo()
+	
 	await get_tree().create_timer(cooldownDash).timeout
 	
+	# Volver el personaje a su color normal.
+	$Personaje.modulate.a = 1.0
+	
 	puedeDashear = true
+
+func CooldownParpadeo():
+	LoopParpadear()
+
+func LoopParpadear():
+	if puedeDashear:
+		$Personaje.modulate = Color(1,1,1	) # Color normal.
+		return
+		
+	# Alternar entre blanco y normal.
+	if $Personaje.modulate == Color(1,1,1):
+		$Personaje.modulate = Color(2,2,2) # Color blanco.
+	else:
+		$Personaje.modulate = Color(1,1,1)
+	
+	await get_tree().create_timer(tiempoParpadeo).timeout
+	
+	LoopParpadear()
