@@ -7,6 +7,10 @@ extends CharacterBody2D
 @export var escenaProyectil: PackedScene
 @export var cadenciaDisparo: float = 0.2
 
+# Variables para la sombra del dash.
+@export var escenaSombra: PackedScene
+@export var tiempoEntreSombras: float = 0.05
+
 # Variables del dash.
 @export var velDash: float = 1200.0
 @export var durDash: float = 0.15
@@ -77,6 +81,8 @@ func Dash():
 	puedeDashear = false
 	estaDasheando = true
 	
+	GenerarSombra()
+	
 	await get_tree().create_timer(durDash).timeout
 	
 	estaDasheando = false
@@ -108,3 +114,36 @@ func LoopParpadear():
 	await get_tree().create_timer(tiempoParpadeo).timeout
 	
 	LoopParpadear()
+
+func GenerarSombra():
+	SombraLoop()
+
+func SombraLoop():
+	if !estaDasheando:
+		return
+	
+	if escenaSombra == null:
+		return
+	
+	var sombra = escenaSombra.instantiate() 
+	
+	var spritePersonaje = $Personaje
+	
+	# Copiar la apariencia.
+	sombra.texture = spritePersonaje.sprite_frames.get_frame_texture(
+		spritePersonaje.animation,
+		spritePersonaje.frame
+	)
+	
+	sombra.global_position = $Personaje.global_position
+	sombra.rotation = $Personaje.global_rotation
+	sombra.scale = spritePersonaje.scale * 0.5
+	
+	# Color.
+	sombra.modulate = Color(1, 1, 1, 0.6)
+	
+	get_tree().current_scene.add_child(sombra)
+	
+	await get_tree().create_timer(tiempoEntreSombras).timeout
+	
+	SombraLoop()

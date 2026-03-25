@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1bnl6c3qljmm"]
+
+[ext_resource type="Script" uid="uid://c4biqamuwpwm7" path="res://Scripts/sombra_dash.gd" id="1_epeys"]
+
+[node name="Sombra Dash" type="Sprite2D"]
+script = ExtResource("1_epeys")

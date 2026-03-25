@@ -15,7 +15,7 @@ scale = Vector2(0.5, 0.5)
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Fondo" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(1, 0.2)
+motion_scale = Vector2(1, 0)
 motion_mirroring = Vector2(0, 720)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Fondo"]
@@ -23,7 +23,7 @@ texture = ExtResource("2_xs5ry")
 centered = false
 
 [node name="Estrellas Chicas" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(1, 0.2)
+motion_scale = Vector2(1, 0.1)
 motion_mirroring = Vector2(0, 720)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Estrellas Chicas"]
@@ -31,7 +31,7 @@ texture = ExtResource("3_oc4j7")
 centered = false
 
 [node name="Estrellas Medianas" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(1, 0.4)
+motion_scale = Vector2(1, 0.2)
 motion_mirroring = Vector2(0, 720)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Estrellas Medianas"]
@@ -39,7 +39,7 @@ texture = ExtResource("4_lrvun")
 centered = false
 
 [node name="Estrellas Cercanas" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(1, 0.6)
+motion_scale = Vector2(1, 0.25)
 motion_mirroring = Vector2(0, 720)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Estrellas Cercanas"]
@@ -47,7 +47,7 @@ texture = ExtResource("5_bm0a4")
 centered = false
 
 [node name="Estrellas Grandes" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(1, 0.8)
+motion_scale = Vector2(1, 0.3)
 motion_mirroring = Vector2(0, 720)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Estrellas Grandes"]
