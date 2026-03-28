@@ -3,6 +3,13 @@ extends CharacterBody2D
 # Varibles del personaje.
 @export var velocidad := 300.0
 
+# Sistema de vida.
+@export var vidaMax: int = 100
+@export var tiempoInvulnerable: float = 2
+
+var vidaActual: int
+var invulnerable: bool = false
+
 # Variables del proyectil.
 @export var escenaProyectil: PackedScene
 @export var cadenciaDisparo: float = 0.2
@@ -29,9 +36,14 @@ var puedeDisparar: bool = true
 func _process(_delta):
 	if Input.is_action_pressed("disparar") and puedeDisparar:
 		Disparar()
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		RecibirDan(10)
 
 func _ready():
 	$Personaje.play("idle")
+	
+	vidaActual = vidaMax
 
 func _physics_process(_delta):
 	var dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -76,6 +88,49 @@ func Disparar():
 	await get_tree().create_timer(cadenciaDisparo).timeout
 	
 	puedeDisparar = true
+
+func RecibirDan(cantidad: int):
+	if invulnerable:
+		return
+	
+	vidaActual -= cantidad
+	print("Vida: ", vidaActual)
+	
+	# Activar invulneravilidad.
+	invulnerable = true
+	
+	# Feedback visual del daño.
+	ParpadeoDan()
+	
+	if vidaActual <= 0:
+		Morir()
+	
+	await get_tree().create_timer(tiempoInvulnerable).timeout
+	
+	invulnerable = false
+	
+
+func Morir():
+	print("Jugador muerto.")
+	queue_free()
+
+func ParpadeoDan():
+	ParpadeoLoop()
+
+func ParpadeoLoop():
+	if !invulnerable:
+		$Personaje.modulate = Color(1,1,1)
+		return
+	
+	# Alternar entre rojo y normal.
+	if $Personaje.modulate == Color(1,1,1):
+		$Personaje.modulate = Color(2, 0.3, 0.3) # Color Rojo.
+	else:
+		$Personaje.modulate = Color(1,1,1)
+	
+	await get_tree().create_timer(0.2).timeout
+	
+	ParpadeoLoop()
 
 func Dash():
 	puedeDashear = false
