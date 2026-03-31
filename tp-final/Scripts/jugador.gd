@@ -112,6 +112,20 @@ func RecibirDan(cantidad: int):
 
 func Morir():
 	print("Jugador muerto.")
+	
+	# Desactivar acciones.
+	set_physics_process(false)
+	set_process(false)
+	
+	# Desactivar colisiones (Por las dudas).
+	$CollisionShape2D.disabled = true
+	
+	# Fade out para desaparecer poco a poco.
+	var tween = create_tween()
+	tween.tween_property($Personaje, "modulate:a", 0.0, 0.5)
+	
+	await  tween.finished
+	
 	queue_free()
 
 func ParpadeoDan():
