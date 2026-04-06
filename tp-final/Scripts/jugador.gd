@@ -42,6 +42,7 @@ func _process(_delta):
 
 func _ready():
 	$Personaje.play("idle")
+	add_to_group("player")
 	
 	vidaActual = vidaMax
 
