@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://de48r34tegkj2"]
+
+[ext_resource type="Script" uid="uid://bonvserl0ivqs" path="res://Scripts/enemigo1.gd" id="1_j7mo5"]
+[ext_resource type="Texture2D" uid="uid://dnlysw3260o6l" path="res://Sprites/Nave.png" id="2_4gtj6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydndn"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_j7mo5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4gtj6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 3)
+shape = SubResource("RectangleShape2D_ydndn")

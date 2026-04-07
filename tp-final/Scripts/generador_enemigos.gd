@@ -1,31 +1,31 @@
 extends Node2D
 
-@export var enemigoEscena: PackedScene
-@export var cantidad: int = 3
-@export var radioSpawn: float = 100.0
+@export var escenaEnemigo: PackedScene
+@export var activarUnaVez: bool = true
 
 var activado: bool = false
 
 func _ready():
 	$Area2D.body_entered.connect(_on_body_entered)
+	
+	add_to_group("player")
 
 func _on_body_entered(body):
-	if activado:
+	if activado and activarUnaVez:
 		return
 	
 	if body.is_in_group("player"):
-		SpawnEnemigos()
+		SpawnearEnemigo()
 		activado = true
-		
-func SpawnEnemigos():
-	for i in cantidad:
-		var enemigo = enemigoEscena.instantiate()
-		
-		var offset = Vector2(
-			randf_range(-radioSpawn, radioSpawn),
-			randf_range(-radioSpawn, radioSpawn)
-		)
-		
-		enemigo.global_position = global_position + offset
-		
-		get_tree().current_scene.add_child(enemigo)
+
+func SpawnearEnemigo():
+	if escenaEnemigo == null:
+		print("No hay enemigo asignado.")
+		return
+	
+	var enemigo = escenaEnemigo.instantiate()
+	
+	# Usar el Marker2D para la posición del enemigo.
+	enemigo.global_position = $PosicionSpawn.global_position
+	
+	get_tree().current_scene.add_child(enemigo)

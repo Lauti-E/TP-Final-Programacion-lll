@@ -6,8 +6,12 @@
 
 [node name="GeneradorEnemigos" type="Node2D"]
 script = ExtResource("1_ptufs")
+escenaEnemigo = null
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(5, 1)
 shape = SubResource("RectangleShape2D_u5mep")
+
+[node name="PosicionSpawn" type="Marker2D" parent="."]

@@ -56,4 +56,5 @@ texture = ExtResource("6_32uxx")
 centered = false
 
 [node name="GeneradorEnemigos" parent="." instance=ExtResource("7_oc4j7")]
-enemigoEscena = ExtResource("7_oc4j7")
+position = Vector2(640, 170)
+scale = Vector2(5, 5)
