@@ -1,17 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5wtuc6maq5xm"]
+[gd_scene load_steps=4 format=3 uid="uid://b5wtuc6maq5xm"]
 
 [ext_resource type="Script" uid="uid://by4xuysi8ltwn" path="res://Scripts/generador_enemigos.gd" id="1_ptufs"]
+[ext_resource type="PackedScene" uid="uid://de48r34tegkj2" path="res://Escenas/enemigo1.tscn" id="2_d6h38"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5mep"]
 
 [node name="GeneradorEnemigos" type="Node2D"]
 script = ExtResource("1_ptufs")
-escenaEnemigo = null
+escenaEnemigo = ExtResource("2_d6h38")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-scale = Vector2(5, 1)
 shape = SubResource("RectangleShape2D_u5mep")
 
-[node name="PosicionSpawn" type="Marker2D" parent="."]
+[node name="PosicionesSpawns" type="Node2D" parent="."]
+
+[node name="PosicionSpawn 1" type="Marker2D" parent="PosicionesSpawns"]
+position = Vector2(0, -300)
+
+[node name="PosicionSpawn 2" type="Marker2D" parent="PosicionesSpawns"]
+position = Vector2(-2, -300)
+
+[node name="PosicionSpawn 3" type="Marker2D" parent="PosicionesSpawns"]
+position = Vector2(2, -300)

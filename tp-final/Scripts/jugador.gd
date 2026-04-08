@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Varibles del personaje.
-@export var velocidad := 300.0
+@export var velocidad := 100.0
 
 # Sistema de vida.
 @export var vidaMax: int = 100

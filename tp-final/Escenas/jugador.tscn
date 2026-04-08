@@ -9,7 +9,7 @@
 radius = 8.999999
 height = 25.0
 
-[node name="Jugador" type="CharacterBody2D"]
+[node name="Jugador" type="CharacterBody2D" groups=["player"]]
 position = Vector2(640, 360)
 script = ExtResource("1_pd7u1")
 escenaProyectil = ExtResource("3_5jvw8")
