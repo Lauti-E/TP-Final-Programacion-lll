@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgm14y4lrexo"]
+[gd_scene load_steps=9 format=3 uid="uid://bgm14y4lrexo"]
 
 [ext_resource type="PackedScene" uid="uid://csv6vgf1urjai" path="res://Escenas/Jugador.tscn" id="1_ge3gi"]
+[ext_resource type="Script" uid="uid://cjrngqu0gesb2" path="res://Scripts/nivel_1.gd" id="1_lrvun"]
 [ext_resource type="Texture2D" uid="uid://bkw7mcnrtkvfa" path="res://Sprites/Fondo Galaxia/01.png" id="2_xs5ry"]
 [ext_resource type="Texture2D" uid="uid://dkvcevvcxce8o" path="res://Sprites/Fondo Galaxia/02.png" id="3_oc4j7"]
 [ext_resource type="Texture2D" uid="uid://p0d0p2ttl54k" path="res://Sprites/Fondo Galaxia/03.png" id="4_lrvun"]
@@ -9,10 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://b5wtuc6maq5xm" path="res://Escenas/generador_enemigos.tscn" id="7_oc4j7"]
 
 [node name="Nivel1" type="Node"]
+script = ExtResource("1_lrvun")
+velScroll = 20.0
 
-[node name="Jugador" parent="." instance=ExtResource("1_ge3gi")]
+[node name="Jugador" parent="." node_paths=PackedStringArray("camara") instance=ExtResource("1_ge3gi")]
 position = Vector2(640, 590)
 scale = Vector2(0.5, 0.5)
+camara = NodePath("../Camera2D")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -59,3 +63,8 @@ centered = false
 [node name="GeneradorEnemigos" parent="." instance=ExtResource("7_oc4j7")]
 position = Vector2(640, 252.00002)
 scale = Vector2(65, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_right = 1280
+limit_bottom = 720

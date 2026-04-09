@@ -5,6 +5,7 @@ extends CharacterBody2D
 var jugador: Node2D
 
 func _ready():
+	$Nave.play("idle")
 	jugador = get_tree().get_first_node_in_group("player")
 
 func _physics_process(delta):

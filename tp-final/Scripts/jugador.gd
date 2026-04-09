@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+# Variable para la cámara.
+@export var camara: Camera2D
+
 # Varibles del personaje.
 @export var velocidad := 100.0
 
@@ -33,7 +36,7 @@ var ultimaDir:= Vector2.ZERO
 # Variables de disparo.
 var puedeDisparar: bool = true
 
-func _process(_delta):
+func _process(delta):
 	if Input.is_action_pressed("disparar") and puedeDisparar:
 		Disparar()
 	
@@ -62,19 +65,22 @@ func _physics_process(_delta):
 	
 	move_and_slide()
 	
-	# Limitar el movimiento del personaje dentro de la cámara.
-	var camara = $Camera2D
+	var tamPantalla = get_viewport_rect().size
+	var mitadPantalla = tamPantalla / 2
 	
-	var izq = camara.limit_left
-	var der = camara.limit_right
-	var arriba = camara.limit_top
-	var abajo = camara.limit_bottom
+	if camara == null:
+		return
+		
+	var izq = camara.global_position.x - mitadPantalla.x
+	var der = camara.global_position.x + mitadPantalla.x
+	var arriba = camara.global_position.y - mitadPantalla.y
+	var abajo = camara.global_position.y + mitadPantalla.y
 	
 	# Tomamos el tamaño desde la colisión.
 	var shape = $CollisionShape2D.shape
 	var extents = shape.get_rect().size / 2
 	
-	global_position.x = clamp(global_position.x, izq + extents.x + 25, der - extents.x - 25)
+	global_position.x = clamp(global_position.x, izq + extents.x, der - extents.x)
 	global_position.y = clamp(global_position.y, arriba + extents.y - 25, abajo - extents.y - 25)
 
 func Disparar():
