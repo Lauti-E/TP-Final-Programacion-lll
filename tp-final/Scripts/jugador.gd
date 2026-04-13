@@ -80,8 +80,8 @@ func _physics_process(_delta):
 	var shape = $CollisionShape2D.shape
 	var extents = shape.get_rect().size / 2
 	
-	global_position.x = clamp(global_position.x, izq + extents.x, der - extents.x)
-	global_position.y = clamp(global_position.y, arriba + extents.y - 25, abajo - extents.y - 25)
+	global_position.x = clamp(global_position.x, izq + extents.x + 30, der - extents.x - 30)
+	global_position.y = clamp(global_position.y, arriba + extents.y + 25, abajo - extents.y - 25)
 
 func Disparar():
 	puedeDisparar = false

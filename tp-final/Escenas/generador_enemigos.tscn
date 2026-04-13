@@ -15,12 +15,14 @@ escenaEnemigo = ExtResource("2_d6h38")
 shape = SubResource("RectangleShape2D_u5mep")
 
 [node name="PosicionesSpawns" type="Node2D" parent="."]
+position = Vector2(0, -250)
 
 [node name="PosicionSpawn 1" type="Marker2D" parent="PosicionesSpawns"]
-position = Vector2(0, -300)
+position = Vector2(-1, 0)
+gizmo_extents = 0.0
 
 [node name="PosicionSpawn 2" type="Marker2D" parent="PosicionesSpawns"]
-position = Vector2(-2, -300)
+position = Vector2(-11, 0)
 
 [node name="PosicionSpawn 3" type="Marker2D" parent="PosicionesSpawns"]
-position = Vector2(2, -300)
+position = Vector2(8, 0)

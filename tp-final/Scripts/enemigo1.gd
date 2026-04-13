@@ -8,12 +8,10 @@ func _ready():
 	$Nave.play("idle")
 	jugador = get_tree().get_first_node_in_group("player")
 
-func _physics_process(delta):
-	if jugador == null:
-		return
-		
-	var dir = (jugador.global_position - global_position).normalized()
-	
-	velocity = dir * velocidad
+func _process(_delta):
+	if global_position.y > get_viewport_rect().size.y + 200:
+		queue_free()
+
+func _physics_process(_delta):
 	
 	move_and_slide()

@@ -23,7 +23,11 @@ func SpawnearEnemigo():
 		print("No hay enemigo asignado.")
 		return
 	
-	var puntosSpawn = $PosicionesSpawns.get_children()
+	var puntosSpawn = []
+	
+	for hijo in $PosicionesSpawns.get_children():
+		if hijo is Marker2D:
+			puntosSpawn.append(hijo)
 	
 	print("Cantidad de puntos:", puntosSpawn.size())
 	
