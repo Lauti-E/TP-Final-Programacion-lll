@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgm14y4lrexo"]
+[gd_scene load_steps=10 format=3 uid="uid://bgm14y4lrexo"]
 
 [ext_resource type="PackedScene" uid="uid://csv6vgf1urjai" path="res://Escenas/Jugador.tscn" id="1_ge3gi"]
 [ext_resource type="Script" uid="uid://cjrngqu0gesb2" path="res://Scripts/nivel_1.gd" id="1_lrvun"]
@@ -8,10 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://cgh7lrtafgiht" path="res://Sprites/Fondo Galaxia/04.png" id="5_bm0a4"]
 [ext_resource type="Texture2D" uid="uid://dj6jgkxitxb4c" path="res://Sprites/Fondo Galaxia/05.png" id="6_32uxx"]
 [ext_resource type="PackedScene" uid="uid://b5wtuc6maq5xm" path="res://Escenas/generador_enemigos.tscn" id="7_oc4j7"]
+[ext_resource type="Script" uid="uid://b8tuoxbicdr4u" path="res://Scripts/level_manager.gd" id="9_bm0a4"]
 
 [node name="Nivel1" type="Node"]
 script = ExtResource("1_lrvun")
-velScroll = 20.0
+velScroll = 200.0
 
 [node name="Jugador" parent="." node_paths=PackedStringArray("camara") instance=ExtResource("1_ge3gi")]
 position = Vector2(640, 590)
@@ -61,8 +62,8 @@ texture = ExtResource("6_32uxx")
 centered = false
 
 [node name="GeneradorEnemigos" parent="." instance=ExtResource("7_oc4j7")]
-position = Vector2(600, -200)
-scale = Vector2(50, 1)
+position = Vector2(640, -200)
+scale = Vector2(60, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(640, 0)
@@ -70,3 +71,9 @@ limit_left = 0
 limit_right = 1280
 limit_bottom = 720
 limit_smoothed = true
+
+[node name="LevelManager" type="Node2D" parent="." node_paths=PackedStringArray("camara")]
+script = ExtResource("9_bm0a4")
+camara = NodePath("../Camera2D")
+escenaSpawner = ExtResource("7_oc4j7")
+offsetSpawn = 500.0

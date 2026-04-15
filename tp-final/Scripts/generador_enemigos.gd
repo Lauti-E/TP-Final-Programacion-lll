@@ -1,14 +1,26 @@
 extends Node2D
 
+# Referencias.
+@export var camara: Camera2D
 @export var escenaEnemigo: PackedScene
+
 @export var activarUnaVez: bool = true
+@export var margenBorrado: float = 100
 
 var activado: bool = false
 
 func _ready():
 	$Area2D.body_entered.connect(_on_body_entered)
+
+func _process(_delta):
+	if camara == null:
+		return
 	
-	add_to_group("player")
+	var limiteAbajo = camara.global_position.y + get_viewport_rect().size.y
+	
+	if global_position.y > limiteAbajo + margenBorrado:
+		queue_free()
+		print("Spawner borrado.")
 
 func _on_body_entered(body):
 	if activado and activarUnaVez:
