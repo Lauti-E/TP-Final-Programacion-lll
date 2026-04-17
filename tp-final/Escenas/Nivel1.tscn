@@ -12,7 +12,7 @@
 
 [node name="Nivel1" type="Node"]
 script = ExtResource("1_lrvun")
-velScroll = 200.0
+velScroll = 20.0
 
 [node name="Jugador" parent="." node_paths=PackedStringArray("camara") instance=ExtResource("1_ge3gi")]
 position = Vector2(640, 590)

@@ -1,12 +1,14 @@
 extends CharacterBody2D
 
-# Referencia a la cámara.
-@export var camara: Camera2D
+@export var margenBorrado: float = 100.0
 
-@export var margenBorrado: float = 100
-@export var velocidad: float = 0
+# Variables generales del enemigo.
+@export var velX: float = 200.0
+
+var dir: float = 1
 
 var jugador: Node2D
+var camara: Camera2D
 
 func _ready():
 	$Nave.play("idle")
@@ -24,5 +26,21 @@ func _process(_delta):
 		queue_free()
 
 func _physics_process(_delta):
+	if camara == null:
+		return
+	
+	var tamPantalla = get_viewport_rect().size
+	var mitadPantalla = tamPantalla / 2
+	
+	var limIzq = camara.global_position.x - mitadPantalla.x - 50.0
+	var limDer = camara.global_position.x + mitadPantalla.x - 150.0
+	
+	velocity.x = velX * dir
+	
+	# Rebote
+	if global_position.x < limIzq:
+		dir = 1
+	elif global_position.x > limDer:
+		dir = -1
 	
 	move_and_slide()
