@@ -64,24 +64,6 @@ func _physics_process(_delta):
 		velocity = dir * velocidad
 	
 	move_and_slide()
-	
-	var tamPantalla = get_viewport_rect().size
-	var mitadPantalla = tamPantalla / 2
-	
-	if camara == null:
-		return
-		
-	var izq = camara.global_position.x - mitadPantalla.x
-	var der = camara.global_position.x + mitadPantalla.x
-	var arriba = camara.global_position.y - mitadPantalla.y
-	var abajo = camara.global_position.y + mitadPantalla.y
-	
-	# Tomamos el tamaño desde la colisión.
-	var shape = $CollisionShape2D.shape
-	var extents = shape.get_rect().size / 2
-	
-	global_position.x = clamp(global_position.x, izq + extents.x + 30, der - extents.x - 30)
-	global_position.y = clamp(global_position.y, arriba + extents.y + 25, abajo - extents.y - 25)
 
 func Disparar():
 	puedeDisparar = false
@@ -213,7 +195,7 @@ func SombraLoop():
 	
 	sombra.global_position = $Personaje.global_position
 	sombra.rotation = $Personaje.global_rotation
-	sombra.scale = spritePersonaje.scale * 0.5
+	sombra.scale = spritePersonaje.scale * 0.2
 	
 	# Color.
 	sombra.modulate = Color(1, 1, 1, 0.6)

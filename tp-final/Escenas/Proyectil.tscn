@@ -11,7 +11,7 @@ load_path = "res://.godot/imported/Proyectil.png-fb9a51ea24257efef9500166db94403
 script = ExtResource("1_m2ky0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.05, 0.05)
 texture = SubResource("CompressedTexture2D_m2ky0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
