@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgh7lrtafgiht"
-path="res://.godot/imported/04.png-39f26bfd6ad948b3c79a1c21a09bd829.ctex"
+uid="uid://jbbxqcbwekeq"
+path="res://.godot/imported/Estrellas Lejanas.png-f0d478f98a8b8488f1d49352756f17fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Fondo Galaxia/04.png"
-dest_files=["res://.godot/imported/04.png-39f26bfd6ad948b3c79a1c21a09bd829.ctex"]
+source_file="res://Sprites/Fondo Galaxia/Estrellas Lejanas.png"
+dest_files=["res://.godot/imported/Estrellas Lejanas.png-f0d478f98a8b8488f1d49352756f17fe.ctex"]
 
 [params]
 

@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgm14y4lrexo"]
+[gd_scene load_steps=7 format=3 uid="uid://bgm14y4lrexo"]
 
 [ext_resource type="PackedScene" uid="uid://csv6vgf1urjai" path="res://Escenas/Jugador.tscn" id="1_ge3gi"]
 [ext_resource type="Script" uid="uid://cjrngqu0gesb2" path="res://Scripts/nivel_1.gd" id="1_lrvun"]
+[ext_resource type="Texture2D" uid="uid://ce5uovpqq20m4" path="res://Sprites/Fondo Galaxia/Fondo.png" id="4_xs5ry"]
+[ext_resource type="Texture2D" uid="uid://jbbxqcbwekeq" path="res://Sprites/Fondo Galaxia/Estrellas Lejanas.png" id="5_oc4j7"]
+[ext_resource type="Texture2D" uid="uid://dwn52dpsqc0dn" path="res://Sprites/Fondo Galaxia/Estrellas Cercanas.png" id="6_lrvun"]
 [ext_resource type="PackedScene" uid="uid://b5wtuc6maq5xm" path="res://Escenas/generador_enemigos.tscn" id="7_oc4j7"]
 
 [node name="Nivel1" type="Node"]
@@ -16,3 +19,35 @@ velDash = 200.0
 [node name="GeneradorEnemigos" parent="." instance=ExtResource("7_oc4j7")]
 position = Vector2(640, -200)
 scale = Vector2(60, 1)
+
+[node name="FondoParallax" type="ParallaxBackground" parent="."]
+
+[node name="EspacioLayer" type="ParallaxLayer" parent="FondoParallax"]
+unique_name_in_owner = true
+motion_mirroring = Vector2(0, 240)
+
+[node name="Fondo" type="TextureRect" parent="FondoParallax/EspacioLayer"]
+offset_right = 160.0
+offset_bottom = 240.0
+texture = ExtResource("4_xs5ry")
+stretch_mode = 1
+
+[node name="EstrellasLejanasLayer" type="ParallaxLayer" parent="FondoParallax"]
+unique_name_in_owner = true
+motion_mirroring = Vector2(0, 240)
+
+[node name="EstrellasLejanas" type="TextureRect" parent="FondoParallax/EstrellasLejanasLayer"]
+offset_right = 160.0
+offset_bottom = 240.0
+texture = ExtResource("5_oc4j7")
+stretch_mode = 1
+
+[node name="EstrellasCercanasLayer" type="ParallaxLayer" parent="FondoParallax"]
+unique_name_in_owner = true
+motion_mirroring = Vector2(0, 240)
+
+[node name="EstrellasCercanas" type="TextureRect" parent="FondoParallax/EstrellasCercanasLayer"]
+offset_right = 160.0
+offset_bottom = 240.0
+texture = ExtResource("6_lrvun")
+stretch_mode = 1

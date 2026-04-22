@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkvcevvcxce8o"
-path="res://.godot/imported/02.png-c34cf4e0a9b7f0e4af9ee73a4a9081c5.ctex"
+uid="uid://ce5uovpqq20m4"
+path="res://.godot/imported/Fondo.png-ad1a7fdae85a4f78ca046a98c55d3e2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Fondo Galaxia/02.png"
-dest_files=["res://.godot/imported/02.png-c34cf4e0a9b7f0e4af9ee73a4a9081c5.ctex"]
+source_file="res://Sprites/Fondo Galaxia/Fondo.png"
+dest_files=["res://.godot/imported/Fondo.png-ad1a7fdae85a4f78ca046a98c55d3e2d.ctex"]
 
 [params]
 

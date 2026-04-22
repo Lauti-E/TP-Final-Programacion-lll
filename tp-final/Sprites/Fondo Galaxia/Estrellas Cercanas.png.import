@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkw7mcnrtkvfa"
-path="res://.godot/imported/01.png-394e9ab58c6155e1f2fcf6d0567ddb6d.ctex"
+uid="uid://dwn52dpsqc0dn"
+path="res://.godot/imported/Estrellas Cercanas.png-4dd8a16c6546721765b6b1ac53fe88e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Fondo Galaxia/01.png"
-dest_files=["res://.godot/imported/01.png-394e9ab58c6155e1f2fcf6d0567ddb6d.ctex"]
+source_file="res://Sprites/Fondo Galaxia/Estrellas Cercanas.png"
+dest_files=["res://.godot/imported/Estrellas Cercanas.png-4dd8a16c6546721765b6b1ac53fe88e8.ctex"]
 
 [params]
 
