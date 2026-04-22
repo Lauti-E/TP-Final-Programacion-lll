@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgm14y4lrexo"]
+[gd_scene load_steps=8 format=3 uid="uid://bgm14y4lrexo"]
 
 [ext_resource type="PackedScene" uid="uid://csv6vgf1urjai" path="res://Escenas/Jugador.tscn" id="1_ge3gi"]
-[ext_resource type="Script" uid="uid://cjrngqu0gesb2" path="res://Scripts/nivel_1.gd" id="1_lrvun"]
+[ext_resource type="Script" uid="uid://cjrngqu0gesb2" path="res://Scripts/Nivel_1.gd" id="1_lrvun"]
 [ext_resource type="Texture2D" uid="uid://ce5uovpqq20m4" path="res://Sprites/Fondo Galaxia/Fondo.png" id="4_xs5ry"]
 [ext_resource type="Texture2D" uid="uid://jbbxqcbwekeq" path="res://Sprites/Fondo Galaxia/Estrellas Lejanas.png" id="5_oc4j7"]
 [ext_resource type="Texture2D" uid="uid://dwn52dpsqc0dn" path="res://Sprites/Fondo Galaxia/Estrellas Cercanas.png" id="6_lrvun"]
-[ext_resource type="PackedScene" uid="uid://b5wtuc6maq5xm" path="res://Escenas/generador_enemigos.tscn" id="7_oc4j7"]
+[ext_resource type="Script" uid="uid://b8g1xl67ahks2" path="res://Scripts/Spawner_Areas.gd" id="7_lrvun"]
+[ext_resource type="PackedScene" uid="uid://criq436o12240" path="res://Escenas/Area_Spawn.tscn" id="8_lrvun"]
 
 [node name="Nivel1" type="Node"]
 script = ExtResource("1_lrvun")
@@ -15,10 +16,6 @@ position = Vector2(80, 216)
 scale = Vector2(0.2, 0.2)
 velocidad = 100.0
 velDash = 200.0
-
-[node name="GeneradorEnemigos" parent="." instance=ExtResource("7_oc4j7")]
-position = Vector2(640, -200)
-scale = Vector2(60, 1)
 
 [node name="FondoParallax" type="ParallaxBackground" parent="."]
 
@@ -51,3 +48,7 @@ offset_right = 160.0
 offset_bottom = 240.0
 texture = ExtResource("6_lrvun")
 stretch_mode = 1
+
+[node name="SpawnerAreas" type="Node2D" parent="."]
+script = ExtResource("7_lrvun")
+escenaArea = ExtResource("8_lrvun")

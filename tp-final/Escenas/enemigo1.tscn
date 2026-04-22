@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://de48r34tegkj2"]
 
-[ext_resource type="Script" uid="uid://bonvserl0ivqs" path="res://Scripts/enemigo1.gd" id="1_j7mo5"]
+[ext_resource type="Script" uid="uid://bonvserl0ivqs" path="res://Scripts/Enemigo1.gd" id="1_j7mo5"]
 [ext_resource type="PackedScene" uid="uid://cxow10tdcro5e" path="res://Sprites/Nave.aseprite" id="2_j7mo5"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]

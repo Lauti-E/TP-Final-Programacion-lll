@@ -1,16 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://csv6vgf1urjai"]
 
-[ext_resource type="Script" uid="uid://dfw0ecxv5gxgb" path="res://Scripts/jugador.gd" id="1_pd7u1"]
+[ext_resource type="Script" uid="uid://dfw0ecxv5gxgb" path="res://Scripts/Jugador.gd" id="1_pd7u1"]
 [ext_resource type="PackedScene" uid="uid://b0bgdmqtg1w43" path="res://Escenas/Proyectil.tscn" id="3_5jvw8"]
 [ext_resource type="PackedScene" uid="uid://c0bno706jdmev" path="res://Sprites/Personaje.aseprite" id="3_8g85c"]
-[ext_resource type="PackedScene" uid="uid://cmhs3p0lxwb4x" path="res://Escenas/sombra_dash.tscn" id="3_muoba"]
+[ext_resource type="PackedScene" uid="uid://cmhs3p0lxwb4x" path="res://Escenas/Sombra_Dash.tscn" id="3_muoba"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pd7u1"]
 radius = 8.999999
 height = 25.0
 
-[node name="Jugador" type="CharacterBody2D" groups=["player"]]
-position = Vector2(640, 360)
+[node name="Jugador" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_pd7u1")
 velocidad = 300.0
 escenaProyectil = ExtResource("3_5jvw8")

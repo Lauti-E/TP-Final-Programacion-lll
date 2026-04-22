@@ -1,8 +1,5 @@
 extends CharacterBody2D
 
-# Variable para la cámara.
-@export var camara: Camera2D
-
 # Varibles del personaje.
 @export var velocidad := 100.0
 
@@ -45,7 +42,7 @@ func _process(delta):
 
 func _ready():
 	$Personaje.play("idle")
-	add_to_group("player")
+	add_to_group("Player")
 	
 	vidaActual = vidaMax
 
