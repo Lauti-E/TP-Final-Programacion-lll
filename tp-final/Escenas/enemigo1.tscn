@@ -1,11 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://de48r34tegkj2"]
+[gd_scene load_steps=5 format=3 uid="uid://de48r34tegkj2"]
 
 [ext_resource type="Script" uid="uid://bonvserl0ivqs" path="res://Scripts/Enemigo1.gd" id="1_j7mo5"]
 [ext_resource type="PackedScene" uid="uid://cxow10tdcro5e" path="res://Sprites/Nave.aseprite" id="2_j7mo5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohnsr"]
+size = Vector2(20, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1nm4"]
+size = Vector2(20, 10)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_j7mo5")
 
 [node name="Nave" parent="." instance=ExtResource("2_j7mo5")]
-position = Vector2(96, 77)
+scale = Vector2(0.2, 0.2)
 animation = &"idle"
+
+[node name="ColisionFisicas" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ohnsr")
+
+[node name="AreaDeteccion" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_w1nm4")
+
+[connection signal="body_entered" from="AreaDeteccion" to="." method="_on_area_deteccion_body_entered"]

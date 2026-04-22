@@ -1,46 +1,34 @@
 extends CharacterBody2D
 
-@export var margenBorrado: float = 100.0
-
 # Variables generales del enemigo.
-@export var velX: float = 200.0
-
-var dir: float = 1
+@export var velY: float = 20.0
+@export var danColision: int = 20
 
 var jugador: Node2D
-var camara: Camera2D
 
 func _ready():
 	$Nave.play("idle")
-	jugador = get_tree().get_first_node_in_group("player")
-	
-	camara = get_viewport().get_camera_2d()
-
-func _process(_delta):
-	if camara == null:
-		return
-	
-	var limiteAbajo = camara.global_position.y + get_viewport_rect().size.y
-	
-	if global_position.y > limiteAbajo + margenBorrado:
-		queue_free()
+	jugador = get_tree().get_first_node_in_group("Player")
 
 func _physics_process(_delta):
-	if camara == null:
-		return
-	
-	var tamPantalla = get_viewport_rect().size
-	var mitadPantalla = tamPantalla / 2
-	
-	var limIzq = camara.global_position.x - mitadPantalla.x - 50.0
-	var limDer = camara.global_position.x + mitadPantalla.x - 150.0
-	
-	velocity.x = velX * dir
-	
-	# Rebote
-	if global_position.x < limIzq:
-		dir = 1
-	elif global_position.x > limDer:
-		dir = -1
+	velocity = Vector2(0, velY)
 	
 	move_and_slide()
+	
+	var tamVentana = get_viewport_rect().size
+	
+	# Obtener tamaño del enemigo.
+	var shape = $ColisionFisicas.shape
+	var ancho = shape.get_rect().size / 2
+	
+	# Clamp con margen (para que no se genere en los bordes).
+	global_position.x = clamp(global_position.x, ancho.x, tamVentana.x - ancho.x)
+	
+	if global_position.y > tamVentana.y + 50:
+		queue_free()
+
+func _on_area_deteccion_body_entered(body):
+	if body.is_in_group("Player"):
+		if body.has_method("RecibirDan"):
+			body.RecibirDan(danColision)
+		queue_free()

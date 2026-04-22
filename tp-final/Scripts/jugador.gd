@@ -33,7 +33,7 @@ var ultimaDir:= Vector2.ZERO
 # Variables de disparo.
 var puedeDisparar: bool = true
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_pressed("disparar") and puedeDisparar:
 		Disparar()
 	
