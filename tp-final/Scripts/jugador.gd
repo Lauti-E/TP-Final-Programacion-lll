@@ -104,7 +104,7 @@ func Morir():
 	set_process(false)
 	
 	# Desactivar colisiones (Por las dudas).
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled", true)
 	
 	# Fade out para desaparecer poco a poco.
 	var tween = create_tween()

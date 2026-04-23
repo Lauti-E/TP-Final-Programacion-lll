@@ -14,8 +14,13 @@ script = ExtResource("1_lrvun")
 [node name="Jugador" parent="." instance=ExtResource("1_ge3gi")]
 position = Vector2(80, 216)
 scale = Vector2(0.2, 0.2)
-velocidad = 100.0
+velocidad = null
+vidaMax = null
+tiempoInvulnerable = null
+tiempoEntreSombras = null
 velDash = 200.0
+durDash = null
+tiempoParpadeo = null
 
 [node name="FondoParallax" type="ParallaxBackground" parent="."]
 
