@@ -192,7 +192,7 @@ func SombraLoop():
 	
 	sombra.global_position = $Personaje.global_position
 	sombra.rotation = $Personaje.global_rotation
-	sombra.scale = spritePersonaje.scale * 0.2
+	sombra.scale = spritePersonaje.scale * 0.15
 	
 	# Color.
 	sombra.modulate = Color(1, 1, 1, 0.6)

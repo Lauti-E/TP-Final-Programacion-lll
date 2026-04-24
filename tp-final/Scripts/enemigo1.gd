@@ -3,12 +3,16 @@ extends CharacterBody2D
 # Variables generales del enemigo.
 @export var velY: float = 20.0
 @export var danColision: int = 20
+@export var vidaMax: int = 50
 
+var vidaActual: int
 var jugador: Node2D
 
 func _ready():
 	$Nave.play("idle")
 	jugador = get_tree().get_first_node_in_group("Player")
+	
+	vidaActual = vidaMax
 
 func _physics_process(_delta):
 	velocity = Vector2(0, velY)
@@ -32,3 +36,12 @@ func _on_area_deteccion_body_entered(body):
 		if body.has_method("RecibirDan"):
 			body.RecibirDan(danColision)
 		queue_free()
+
+func RecibirDanio(cantidad: int):
+	vidaActual -= cantidad
+	
+	if vidaActual <= 0:
+		Morir()
+
+func Morir():
+	queue_free()
