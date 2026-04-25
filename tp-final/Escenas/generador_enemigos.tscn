@@ -1,6 +1,3 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgn4fmmt88gax"]
-
-[ext_resource type="Script" uid="uid://by4xuysi8ltwn" path="res://Scripts/Generador_Enemigos.gd" id="1_ptufs"]
+[gd_scene format=3 uid="uid://cgn4fmmt88gax"]
 
 [node name="GeneradorEnemigos" type="Node2D"]
-script = ExtResource("1_ptufs")

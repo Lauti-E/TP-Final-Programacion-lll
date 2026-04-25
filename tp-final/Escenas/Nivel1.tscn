@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgm14y4lrexo"]
+[gd_scene load_steps=9 format=3 uid="uid://bgm14y4lrexo"]
 
 [ext_resource type="PackedScene" uid="uid://csv6vgf1urjai" path="res://Escenas/Jugador.tscn" id="1_ge3gi"]
 [ext_resource type="Script" uid="uid://cjrngqu0gesb2" path="res://Scripts/Nivel_1.gd" id="1_lrvun"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://jbbxqcbwekeq" path="res://Sprites/Fondo Galaxia/Estrellas Lejanas.png" id="5_oc4j7"]
 [ext_resource type="Texture2D" uid="uid://dwn52dpsqc0dn" path="res://Sprites/Fondo Galaxia/Estrellas Cercanas.png" id="6_lrvun"]
 [ext_resource type="Script" uid="uid://b8g1xl67ahks2" path="res://Scripts/Spawner_Areas.gd" id="7_lrvun"]
+[ext_resource type="PackedScene" uid="uid://d0lmxkgs7kyov" path="res://Escenas/Generador_Asteroide.tscn" id="8_bm0a4"]
 [ext_resource type="PackedScene" uid="uid://criq436o12240" path="res://Escenas/Area_Spawn.tscn" id="8_lrvun"]
 
 [node name="Nivel1" type="Node"]
@@ -57,3 +58,5 @@ stretch_mode = 1
 [node name="SpawnerAreas" type="Node2D" parent="."]
 script = ExtResource("7_lrvun")
 escenaArea = ExtResource("8_lrvun")
+
+[node name="Generador Asteroide" parent="." instance=ExtResource("8_bm0a4")]

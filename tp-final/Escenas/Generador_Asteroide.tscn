@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0lmxkgs7kyov"]
+
+[ext_resource type="Script" uid="uid://dkbpis3hyyn2l" path="res://Scripts/Generador_Asteroide.gd" id="1_jwqie"]
+[ext_resource type="PackedScene" uid="uid://cru5oyew70f30" path="res://Escenas/Asteroide.tscn" id="2_yfojn"]
+
+[node name="Generador Asteroide" type="Node2D"]
+script = ExtResource("1_jwqie")
+escenaAsteroide = ExtResource("2_yfojn")

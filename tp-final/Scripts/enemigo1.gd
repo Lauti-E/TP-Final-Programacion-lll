@@ -40,8 +40,20 @@ func _on_area_deteccion_body_entered(body):
 func RecibirDanio(cantidad: int):
 	vidaActual -= cantidad
 	
+	HitFlash()
+	
 	if vidaActual <= 0:
 		Morir()
 
 func Morir():
 	queue_free()
+
+func HitFlash():
+	FlashLoop()
+
+func FlashLoop():
+	$Nave.modulate = Color(2,2,2)
+	
+	await  get_tree().create_timer(0.05).timeout
+	
+	$Nave.modulate = Color(1,1,1)
