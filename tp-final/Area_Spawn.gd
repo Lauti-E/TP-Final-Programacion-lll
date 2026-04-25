@@ -2,6 +2,7 @@ extends Area2D
 
 # Variables generales del área de spawn.
 @export var velocidad: float = 20.0
+@export var cantCarriles: int = 5
 
 # Variables para los enemigos.
 @export var escenaEnemigo: PackedScene
@@ -24,11 +25,21 @@ func GenerarEnemigos():
 	var tamVentana = get_viewport_rect().size
 	
 	for i in cantEnemigos:
+		# Obtener enemigo de su escena.
 		var enemigo = escenaEnemigo.instantiate()
 		
-		var randomX = randf_range(0, tamVentana.x)
+		# Obtener el ancho de pantalla y del carril.
+		var anchoPantalla = tamVentana.x
+		var anchoCarril = anchoPantalla / cantCarriles
+		
+		# Crear la cantidad de carriles definidos.
+		var carril = randi() % cantCarriles
+		
+		# Definir la posición de los spawns (X, Y).
+		var spawnX = (carril * anchoCarril) + (anchoCarril / 2)
 		var spawnY = -50
 		
-		enemigo.global_position = Vector2(randomX, spawnY)
+		# Generar al enemigo en esa posición.
+		enemigo.global_position = Vector2(spawnX, spawnY)
 		
 		get_tree().current_scene.add_child(enemigo)

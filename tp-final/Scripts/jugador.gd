@@ -19,8 +19,8 @@ var invulnerable: bool = false
 @export var tiempoEntreSombras: float = 0.05
 
 # Variables del dash.
-@export var velDash: float = 1200.0
-@export var durDash: float = 0.15
+@export var velDash: float = 1100.0
+@export var durDash: float = 0.25
 @export var cooldownDash: float = 1
 
 # Efecto de parpadeo para el cooldown del dash.
@@ -76,7 +76,7 @@ func Disparar():
 	puedeDisparar = true
 
 func RecibirDan(cantidad: int):
-	if invulnerable:
+	if invulnerable or estaDasheando:
 		return
 	
 	vidaActual -= cantidad
@@ -94,7 +94,6 @@ func RecibirDan(cantidad: int):
 	await get_tree().create_timer(tiempoInvulnerable).timeout
 	
 	invulnerable = false
-	
 
 func Morir():
 	print("Jugador muerto.")
@@ -136,11 +135,15 @@ func Dash():
 	puedeDashear = false
 	estaDasheando = true
 	
+	$CollisionShape2D.disabled = true
+	
 	GenerarSombra()
 	
 	await get_tree().create_timer(durDash).timeout
 	
 	estaDasheando = false
+	
+	$CollisionShape2D.disabled = false
 	
 	# Iniciar parpadeo del cooldown.
 	CooldownParpadeo()
