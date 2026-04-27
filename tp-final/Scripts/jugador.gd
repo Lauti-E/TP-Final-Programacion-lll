@@ -61,6 +61,15 @@ func _physics_process(_delta):
 		velocity = dir * velocidad
 	
 	move_and_slide()
+	
+	var tamVentana = get_viewport_rect().size
+	
+	var shape = $CollisionShape2D.shape
+	var long = shape.get_rect().size / 2
+	
+	global_position.x = clamp(global_position.x, long.x, tamVentana.x - long.x)
+	
+	global_position.y = clamp(global_position.y, long.y, tamVentana.y - long.y)
 
 func Disparar():
 	puedeDisparar = false

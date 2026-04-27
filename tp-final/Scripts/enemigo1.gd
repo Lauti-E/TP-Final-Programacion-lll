@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Variables generales del enemigo.
 @export var velY: float = 20.0
-@export var danColision: int = 20
+@export var danColision: int = 10
 @export var vidaMax: int = 50
 
 var vidaActual: int

@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
+# Variables generales del asteroide.
 @export var velCaida: float = 50.0
-@export var danColision: float = 30
+@export var danColision: int = 20
 
 func _physics_process(_delta):
 	velocity = Vector2(0, velCaida)
@@ -15,4 +16,7 @@ func _physics_process(_delta):
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Player"):
+		
+		if body.has_method("RecibirDan"):
+			body.RecibirDan(danColision)
 		queue_free()
