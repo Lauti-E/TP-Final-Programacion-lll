@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm8vrewbclrtv"]
+
+[ext_resource type="Script" uid="uid://b35no4cp03xe1" path="res://Scripts/Animacion_Explosion.gd" id="1_l2squ"]
+[ext_resource type="PackedScene" uid="uid://xnfcde2uakou" path="res://Sprites/Explosion.aseprite" id="1_m4j6n"]
+
+[node name="Animacion Explosion" type="Node2D"]
+script = ExtResource("1_l2squ")
+
+[node name="Explosion" parent="." instance=ExtResource("1_m4j6n")]
+scale = Vector2(0.1, 0.1)
+animation = &"Flash"
+
+[connection signal="animation_finished" from="Explosion" to="." method="_on_explosion_animation_finished"]

@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@export var escenaExplosion: PackedScene
+
 # Variables generales del enemigo.
 @export var velY: float = 20.0
 @export var danColision: int = 10
@@ -46,6 +48,13 @@ func RecibirDanio(cantidad: int):
 		Morir()
 
 func Morir():
+	if escenaExplosion != null:
+		var explosion = escenaExplosion.instantiate()
+		
+		explosion.global_position = global_position
+		
+		get_tree().current_scene.add_child(explosion)
+	
 	queue_free()
 
 func HitFlash():
