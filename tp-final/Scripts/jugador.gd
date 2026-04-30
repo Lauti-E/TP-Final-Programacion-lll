@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+# LLamada a la barra de vida.
+@onready var barraVida = $"../UI/BarraVida"
+
 # Varibles del personaje.
 @export var velocidad := 100.0
 
@@ -45,6 +48,8 @@ func _ready():
 	add_to_group("Player")
 	
 	vidaActual = vidaMax
+	barraVida.max_value = vidaMax
+	barraVida.value = vidaActual
 
 func _physics_process(_delta):
 	var dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -90,6 +95,7 @@ func RecibirDan(cantidad: int):
 	
 	vidaActual -= cantidad
 	print("Vida: ", vidaActual)
+	barraVida.value = vidaActual
 	
 	# Activar invulneravilidad.
 	invulnerable = true
