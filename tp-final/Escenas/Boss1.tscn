@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwk65262ev8fu"]
+
+[ext_resource type="Script" uid="uid://bkbfsbstr7c2v" path="res://Scripts/Boss1.gd" id="1_irtb6"]
+[ext_resource type="PackedScene" uid="uid://bqvgl7i8iuc0a" path="res://Sprites/Boss1.aseprite" id="3_uj6w6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_17j6o"]
+radius = 10.338709
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_irtb6")
+
+[node name="Boss1" parent="." instance=ExtResource("3_uj6w6")]
+scale = Vector2(0.5, 0.5)
+
+[node name="ColisionFisicas" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_17j6o")

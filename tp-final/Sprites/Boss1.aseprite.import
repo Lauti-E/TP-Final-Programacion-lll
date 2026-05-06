@@ -1,0 +1,25 @@
+[remap]
+
+importer="Aseprite AnimatedSprite2D Import"
+type="PackedScene"
+uid="uid://bqvgl7i8iuc0a"
+path="res://.godot/imported/Boss1.aseprite-70d6e0a59c2ab0a63fb37d62b4388766.scn"
+
+[deps]
+
+source_file="res://Sprites/Boss1.aseprite"
+dest_files=["res://.godot/imported/Boss1.aseprite-70d6e0a59c2ab0a63fb37d62b4388766.scn"]
+
+[params]
+
+spritesheet/layout=0
+spritesheet/fixed_rows_count=1
+spritesheet/fixed_columns_count=1
+spritesheet/border_type=0
+spritesheet/trim=false
+spritesheet/ignore_empty=false
+spritesheet/merge_duplicates=false
+animation/default/name="default"
+animation/default/direction=0
+animation/default/repeat_count=0
+animation/autoplay=""

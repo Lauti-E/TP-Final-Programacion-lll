@@ -10,8 +10,8 @@ func _process(delta):
 	if global_position.y < -50:
 		queue_free()
 
-
 func _on_body_entered(body):
 	if body.has_method("RecibirDanio"):
 		body.RecibirDanio(danio)
 		queue_free()
+	
