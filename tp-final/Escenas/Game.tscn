@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=3 uid="uid://bn5gunuqsymqu"]
+
+[ext_resource type="Script" uid="uid://bolwnad1tbomg" path="res://Scripts/GameManager.gd" id="1_dawtg"]
+[ext_resource type="PackedScene" uid="uid://bgm14y4lrexo" path="res://Escenas/Nivel1.tscn" id="2_uqrhm"]
+[ext_resource type="PackedScene" uid="uid://csv6vgf1urjai" path="res://Escenas/Jugador.tscn" id="3_rl3b6"]
+[ext_resource type="Texture2D" uid="uid://ce5uovpqq20m4" path="res://Sprites/Fondo Galaxia/Fondo.png" id="4_jaav8"]
+[ext_resource type="Texture2D" uid="uid://jbbxqcbwekeq" path="res://Sprites/Fondo Galaxia/Estrellas Lejanas.png" id="5_a5oj8"]
+[ext_resource type="Texture2D" uid="uid://dwn52dpsqc0dn" path="res://Sprites/Fondo Galaxia/Estrellas Cercanas.png" id="6_f0027"]
+[ext_resource type="Script" uid="uid://b8g1xl67ahks2" path="res://Scripts/Spawner_Areas.gd" id="7_ib86i"]
+[ext_resource type="PackedScene" uid="uid://criq436o12240" path="res://Escenas/Area_Spawn.tscn" id="8_am5uq"]
+[ext_resource type="PackedScene" uid="uid://d0lmxkgs7kyov" path="res://Escenas/Generador_Asteroide.tscn" id="9_ipq14"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opkev"]
+bg_color = Color(0.16862746, 0.16862746, 0.16862746, 0.6666667)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pr06s"]
+bg_color = Color(1, 0.23529412, 0.23529412, 0.6666667)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Game" type="Node2D"]
+
+[node name="GameManager" type="Node2D" parent="."]
+script = ExtResource("1_dawtg")
+
+[node name="Nivel1" parent="." instance=ExtResource("2_uqrhm")]
+
+[node name="Jugador" parent="." instance=ExtResource("3_rl3b6")]
+position = Vector2(80, 216)
+scale = Vector2(0.15, 0.15)
+velDash = 200.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="BarraVida" type="ProgressBar" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -12.0
+offset_right = 133.0
+offset_bottom = 8.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/background = SubResource("StyleBoxFlat_opkev")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pr06s")
+value = 100.0
+show_percentage = false
+
+[node name="FondoParallax" type="ParallaxBackground" parent="."]
+
+[node name="EspacioLayer" type="ParallaxLayer" parent="FondoParallax"]
+unique_name_in_owner = true
+motion_mirroring = Vector2(0, 240)
+
+[node name="Fondo" type="TextureRect" parent="FondoParallax/EspacioLayer"]
+offset_right = 160.0
+offset_bottom = 240.0
+texture = ExtResource("4_jaav8")
+stretch_mode = 1
+
+[node name="EstrellasLejanasLayer" type="ParallaxLayer" parent="FondoParallax"]
+unique_name_in_owner = true
+motion_mirroring = Vector2(0, 240)
+
+[node name="EstrellasLejanas" type="TextureRect" parent="FondoParallax/EstrellasLejanasLayer"]
+offset_right = 160.0
+offset_bottom = 240.0
+texture = ExtResource("5_a5oj8")
+stretch_mode = 1
+
+[node name="EstrellasCercanasLayer" type="ParallaxLayer" parent="FondoParallax"]
+unique_name_in_owner = true
+motion_mirroring = Vector2(0, 240)
+
+[node name="EstrellasCercanas" type="TextureRect" parent="FondoParallax/EstrellasCercanasLayer"]
+offset_right = 160.0
+offset_bottom = 240.0
+texture = ExtResource("6_f0027")
+stretch_mode = 1
+
+[node name="SpawnerAreas" type="Node2D" parent="."]
+script = ExtResource("7_ib86i")
+escenaArea = ExtResource("8_am5uq")
+
+[node name="Generador Asteroide" parent="." instance=ExtResource("9_ipq14")]
