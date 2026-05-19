@@ -15,3 +15,5 @@ func _on_body_entered(body):
 		body.RecibirDanio(danio)
 		queue_free()
 	
+	if body.is_in_group("Asteroide"):
+		queue_free()

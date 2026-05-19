@@ -7,7 +7,7 @@ load_path = "res://.godot/imported/Proyectil.png-fb9a51ea24257efef9500166db94403
 
 [node name="Proyectil" type="Area2D"]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 10
 script = ExtResource("1_m2ky0")
 velProyectil = 300.0
 

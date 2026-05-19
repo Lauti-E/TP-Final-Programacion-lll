@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ciugnwomjyr2m"
-path="res://.godot/imported/Boss1.aseprite4.png-4cfb56c5ee6d382e14fbcd7915d5cc16.ctex"
+uid="uid://cvdygpx8c7a8r"
+path="res://.godot/imported/Nave2.png-cd8d392cdfefc4c7f44ac100833c0197.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Boss1.aseprite4.png"
-dest_files=["res://.godot/imported/Boss1.aseprite4.png-4cfb56c5ee6d382e14fbcd7915d5cc16.ctex"]
+source_file="res://Sprites/Nave2.png"
+dest_files=["res://.godot/imported/Nave2.png-cd8d392cdfefc4c7f44ac100833c0197.ctex"]
 
 [params]
 

@@ -2,13 +2,13 @@
 
 importer="Aseprite AnimatedSprite2D Import"
 type="PackedScene"
-uid="uid://cxow10tdcro5e"
-path="res://.godot/imported/Nave.aseprite-7637632a4fa2b319c8ca28007913a9b4.scn"
+uid="uid://dvnf7s1nqangh"
+path="res://.godot/imported/Enemigo2.aseprite-189e7dcd6e2d0fe0f7d817bc84bd0337.scn"
 
 [deps]
 
-source_file="res://Sprites/Nave.aseprite"
-dest_files=["res://.godot/imported/Nave.aseprite-7637632a4fa2b319c8ca28007913a9b4.scn"]
+source_file="res://Sprites/Enemigo2.aseprite"
+dest_files=["res://.godot/imported/Enemigo2.aseprite-189e7dcd6e2d0fe0f7d817bc84bd0337.scn"]
 
 [params]
 
