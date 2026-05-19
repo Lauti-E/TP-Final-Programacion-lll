@@ -37,7 +37,7 @@ func GenerarEnemigos():
 		
 		# Definir la posición de los spawns (X, Y).
 		var spawnX = (carril * anchoCarril) + (anchoCarril / 2)
-		var spawnY = -50
+		var spawnY = -20
 		
 		# Generar al enemigo en esa posición.
 		enemigo.global_position = Vector2(spawnX, spawnY)

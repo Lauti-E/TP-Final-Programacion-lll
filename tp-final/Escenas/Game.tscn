@@ -98,5 +98,6 @@ stretch_mode = 1
 [node name="SpawnerAreas" type="Node2D" parent="."]
 script = ExtResource("7_ib86i")
 escenaArea = ExtResource("8_am5uq")
+tiempoMax = 7.0
 
 [node name="Generador Asteroide" parent="." instance=ExtResource("9_ipq14")]
