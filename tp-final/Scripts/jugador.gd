@@ -36,13 +36,6 @@ var ultimaDir:= Vector2.ZERO
 # Variables de disparo.
 var puedeDisparar: bool = true
 
-func _process(_delta):
-	if Input.is_action_pressed("disparar") and puedeDisparar:
-		Disparar()
-	
-	if Input.is_action_just_pressed("ui_accept"):
-		RecibirDan(10)
-
 func _ready():
 	$Personaje.play("idle")
 	add_to_group("Player")
@@ -50,6 +43,13 @@ func _ready():
 	vidaActual = vidaMax
 	barraVida.max_value = vidaMax
 	barraVida.value = vidaActual
+
+func _process(_delta):
+	if Input.is_action_pressed("disparar") and puedeDisparar:
+		Disparar()
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		RecibirDan(10)
 
 func _physics_process(_delta):
 	var dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
