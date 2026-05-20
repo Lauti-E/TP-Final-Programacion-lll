@@ -31,4 +31,7 @@ scale = Vector2(1.2, 1.3)
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_w1nm4")
 
+[node name="Punto Disparo" type="Marker2D" parent="."]
+position = Vector2(0, 9)
+
 [connection signal="body_entered" from="AreaDeteccion" to="." method="_on_area_deteccion_body_entered"]

@@ -81,7 +81,7 @@ func Disparar():
 	
 	var proyectil = escenaProyectil.instantiate()
 	
-	proyectil.global_position = $"Punto Proyectil Der".global_position
+	proyectil.global_position = $"Punto Proyectil".global_position
 	
 	get_tree().current_scene.add_child(proyectil)
 	

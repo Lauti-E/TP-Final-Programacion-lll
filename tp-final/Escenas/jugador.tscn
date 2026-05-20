@@ -28,7 +28,7 @@ position = Vector2(-2.3841858e-07, 4.7683716e-07)
 scale = Vector2(5, 5)
 shape = SubResource("CapsuleShape2D_pd7u1")
 
-[node name="Punto Proyectil Der" type="Marker2D" parent="."]
+[node name="Punto Proyectil" type="Marker2D" parent="."]
 visible = false
 position = Vector2(46, -50)
 
