@@ -3,9 +3,9 @@ extends CharacterBody2D
 @export var escenaExplosion: PackedScene
 
 # Variables generales del enemigo.
-@export var velY: float = 10.0
-@export var danColision: int = 10
-@export var vidaMax: int = 50
+@export var velY: float = 0.0
+@export var danColision: int = 0
+@export var vidaMax: int = 0
 
 var vidaActual: int
 var jugador: Node2D

@@ -4,30 +4,30 @@ extends CharacterBody2D
 @onready var barraVida = $"../UI/BarraVida"
 
 # Varibles del personaje.
-@export var velocidad := 100.0
+@export var velocidad := 0.0
 
 # Sistema de vida.
-@export var vidaMax: int = 100
-@export var tiempoInvulnerable: float = 2
+@export var vidaMax: int = 0
+@export var tiempoInvulnerable: float = 0
 
 var vidaActual: int
 var invulnerable: bool = false
 
 # Variables del proyectil.
 @export var escenaProyectil: PackedScene
-@export var cadenciaDisparo: float = 0.2
+@export var cadenciaDisparo: float = 0.0
 
 # Variables para la sombra del dash.
 @export var escenaSombra: PackedScene
-@export var tiempoEntreSombras: float = 0.05
+@export var tiempoEntreSombras: float = 0.0
 
 # Variables del dash.
-@export var velDash: float = 1100.0
-@export var durDash: float = 0.25
-@export var cooldownDash: float = 1
+@export var velDash: float = 0.0
+@export var durDash: float = 0.0
+@export var cooldownDash: float = 0
 
 # Efecto de parpadeo para el cooldown del dash.
-@export var tiempoParpadeo: float = 0.2
+@export var tiempoParpadeo: float = 0.0
 
 var puedeDashear: bool = true
 var estaDasheando: bool = false

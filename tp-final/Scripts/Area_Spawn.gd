@@ -1,12 +1,16 @@
 extends Area2D
 
 # Variables generales del área de spawn.
-@export var velocidad: float = 20.0
-@export var cantCarriles: int = 5
+@export var velocidad: float = 0.0
+@export var cantCarriles: int = 0
 
 # Variables para los enemigos.
 @export var escenaEnemigo: PackedScene
-@export var cantEnemigos: int = 3
+@export var escenaEnemigoDisparador: PackedScene
+@export var cantEnemigos: int = 0
+
+# Variables de spawn.
+@export_range(0, 100) var probDisparador: int = 0
 
 func _process(delta):
 	position.y += velocidad * delta
@@ -24,9 +28,17 @@ func GenerarEnemigos():
 	
 	var tamVentana = get_viewport_rect().size
 	
+	var generarDisparador = randi_range(1, 100) <= probDisparador
+	var indiceDisparador = randi() % cantEnemigos
+	
 	for i in cantEnemigos:
 		# Obtener enemigo de su escena.
-		var enemigo = escenaEnemigo.instantiate()
+		var enemigo
+		
+		if generarDisparador and i == indiceDisparador:
+			enemigo = escenaEnemigoDisparador.instantiate()
+		else:
+			enemigo = escenaEnemigo.instantiate()
 		
 		# Obtener el ancho de pantalla y del carril.
 		var anchoPantalla = tamVentana.x

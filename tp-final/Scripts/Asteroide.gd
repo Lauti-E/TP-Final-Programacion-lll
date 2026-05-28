@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 # Variables generales del asteroide.
-@export var velCaida: float = 50.0
-@export var danColision: int = 20
+@export var velCaida: float = 0.0
+@export var danColision: int = 0
 
 func _physics_process(_delta):
 	velocity = Vector2(0, velCaida)

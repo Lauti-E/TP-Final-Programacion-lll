@@ -38,6 +38,7 @@ corner_radius_bottom_left = 5
 
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("1_dawtg")
+velNivel = 50.0
 
 [node name="Nivel1" parent="." instance=ExtResource("2_uqrhm")]
 

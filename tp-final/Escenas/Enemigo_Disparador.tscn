@@ -17,6 +17,9 @@ collision_mask = 5
 script = ExtResource("1_yleis")
 escenaExplosion = ExtResource("2_80bvk")
 escenaProyectil = ExtResource("3_yleis")
+velY = 10.0
+danColision = 10
+vidaMax = 50
 
 [node name="Nave" parent="." instance=ExtResource("3_axeom")]
 scale = Vector2(0.25, 0.25)

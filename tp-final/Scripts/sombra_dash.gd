@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var duracion: float = 0.3
+@export var duracion: float = 0.0
 
 func _ready():
 	# Desvanecimiento de la sombra.

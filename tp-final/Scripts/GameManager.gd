@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var velNivel: float = 50.0
+@export var velNivel: float = 0.0
 
 var distancia: float = 0.0
 

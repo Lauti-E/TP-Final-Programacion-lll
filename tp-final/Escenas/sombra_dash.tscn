@@ -4,3 +4,4 @@
 
 [node name="Sombra Dash" type="Sprite2D"]
 script = ExtResource("1_epeys")
+duracion = 0.3

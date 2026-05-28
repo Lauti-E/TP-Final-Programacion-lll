@@ -12,6 +12,8 @@ radius = 5.0
 [node name="Asteroide" type="CharacterBody2D" groups=["Asteroide"]]
 collision_layer = 8
 script = ExtResource("1_0xgun")
+velCaida = 50.0
+danColision = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jqk13")

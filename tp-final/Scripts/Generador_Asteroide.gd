@@ -2,8 +2,8 @@ extends Node2D
 
 @export var escenaAsteroide: PackedScene
 
-@export var tiempoMin: float = 5.0
-@export var tiempoMax: float = 10.0
+@export var tiempoMin: float = 0.0
+@export var tiempoMax: float = 0.0
 
 func _ready():
 	await get_tree().create_timer(5.0).timeout

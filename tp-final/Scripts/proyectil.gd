@@ -1,7 +1,7 @@
 extends Area2D
 
-@export var velProyectil: float = 500
-@export var danio: int = 20
+@export var velProyectil: float = 0.0
+@export var danio: int = 0
 
 func _process(delta):
 	position.y -= velProyectil * delta
