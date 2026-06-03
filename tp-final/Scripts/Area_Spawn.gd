@@ -32,6 +32,14 @@ func GenerarEnemigos():
 	
 	var tamVentana = get_viewport_rect().size
 	
+	# Obtener el ancho de pantalla y del carril.
+	var anchoPantalla = tamVentana.x
+	var anchoCarril = anchoPantalla / cantCarriles
+	
+	var carrilesDisponibles = []
+	for i in cantCarriles:
+		carrilesDisponibles.append(i)
+	
 	var generarDisparador = randi_range(1, 100) <= gameManager.probDisparadorActual
 	var indiceDisparador = randi() % cantEnemigos
 	
@@ -44,12 +52,9 @@ func GenerarEnemigos():
 		else:
 			enemigo = escenaEnemigo.instantiate()
 		
-		# Obtener el ancho de pantalla y del carril.
-		var anchoPantalla = tamVentana.x
-		var anchoCarril = anchoPantalla / cantCarriles
-		
 		# Crear la cantidad de carriles definidos.
-		var carril = randi() % cantCarriles
+		var indice = randi() % carrilesDisponibles.size()
+		var carril = carrilesDisponibles[indice]
 		
 		# Definir la posición de los spawns (X, Y).
 		var spawnX = (carril * anchoCarril) + (anchoCarril / 2)
@@ -57,5 +62,7 @@ func GenerarEnemigos():
 		
 		# Generar al enemigo en esa posición.
 		enemigo.global_position = Vector2(spawnX, spawnY)
+		
+		carrilesDisponibles.remove_at(indice)
 		
 		get_tree().current_scene.add_child(enemigo)
