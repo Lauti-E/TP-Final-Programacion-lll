@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://csv6vgf1urjai"]
+[gd_scene load_steps=7 format=3 uid="uid://csv6vgf1urjai"]
 
 [ext_resource type="Script" uid="uid://dfw0ecxv5gxgb" path="res://Scripts/Jugador.gd" id="1_pd7u1"]
+[ext_resource type="PackedScene" uid="uid://bw8wgjpsyegnv" path="res://Escenas/Onda_Expansiva.tscn" id="2_muoba"]
 [ext_resource type="PackedScene" uid="uid://b0bgdmqtg1w43" path="res://Escenas/Proyectil.tscn" id="3_5jvw8"]
 [ext_resource type="PackedScene" uid="uid://c0bno706jdmev" path="res://Sprites/Personaje.aseprite" id="3_8g85c"]
 [ext_resource type="PackedScene" uid="uid://cmhs3p0lxwb4x" path="res://Escenas/Sombra_Dash.tscn" id="3_muoba"]
@@ -15,6 +16,8 @@ script = ExtResource("1_pd7u1")
 velocidad = 100.0
 vidaMax = 100
 tiempoInvulnerable = 2.0
+energiaMax = 100
+escenaOnda = ExtResource("2_muoba")
 escenaProyectil = ExtResource("3_5jvw8")
 cadenciaDisparo = 0.5
 escenaSombra = ExtResource("3_muoba")

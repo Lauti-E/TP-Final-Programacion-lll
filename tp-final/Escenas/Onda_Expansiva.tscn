@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw8wgjpsyegnv"]
+
+[ext_resource type="Script" uid="uid://r5q28igmsy5q" path="res://Scripts/Onda_Expansiva.gd" id="1_vvgtg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ht0l4"]
+
+[node name="Onda_Expansiva" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_vvgtg")
+escalaFinal = 4.5
+duracion = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ht0l4")
+debug_color = Color(0.7294118, 0.16470589, 0.105882354, 0.47058824)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]

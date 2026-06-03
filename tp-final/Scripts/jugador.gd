@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-# LLamada a la barra de vida.
+# LLamada a la barra de vida y energía.
 @onready var barraVida = $"../UI/BarraVida"
+@onready var barraEnergia = $"../UI/BarraEnergia"
 
 # Varibles del personaje.
 @export var velocidad := 0.0
@@ -12,6 +13,13 @@ extends CharacterBody2D
 
 var vidaActual: int
 var invulnerable: bool = false
+
+# Sistema de energía.
+@export var energiaMax: int = 0
+var energiaActual: int = 0
+
+# Onda expansiva.
+@export var escenaOnda: PackedScene
 
 # Variables del proyectil.
 @export var escenaProyectil: PackedScene
@@ -40,16 +48,21 @@ func _ready():
 	$Personaje.play("idle")
 	add_to_group("Player")
 	
+	# Asignar las variables de vida.
 	vidaActual = vidaMax
 	barraVida.max_value = vidaMax
 	barraVida.value = vidaActual
+	
+	# Asiganr las variables de energía.
+	barraEnergia.max_value = energiaMax
+	barraEnergia.value = energiaActual
 
 func _process(_delta):
 	if Input.is_action_pressed("disparar") and puedeDisparar:
 		Disparar()
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		RecibirDan(10)
+		CrearOnda()
 
 func _physics_process(_delta):
 	var dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -220,3 +233,19 @@ func SombraLoop():
 	await get_tree().create_timer(tiempoEntreSombras).timeout
 	
 	SombraLoop()
+
+func GanarEnergia(cantidad:int):
+	energiaActual += cantidad
+	energiaActual = min(energiaActual, energiaMax)
+	
+	barraEnergia.value = energiaActual
+
+func CrearOnda():
+	if escenaOnda == null:
+		return
+	
+	var onda = escenaOnda.instantiate()
+	
+	onda.global_position = global_position
+	
+	get_tree().current_scene.add_child(onda)
