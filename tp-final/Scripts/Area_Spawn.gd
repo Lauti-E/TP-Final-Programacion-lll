@@ -1,5 +1,7 @@
 extends Area2D
 
+var gameManager
+
 # Variables generales del área de spawn.
 @export var velocidad: float = 0.0
 @export var cantCarriles: int = 0
@@ -23,12 +25,14 @@ func _on_body_entered(body):
 		call_deferred("queue_free")
 
 func GenerarEnemigos():
+	gameManager = get_tree().get_first_node_in_group("GameManager")
+	
 	if escenaEnemigo == null:
 		return
 	
 	var tamVentana = get_viewport_rect().size
 	
-	var generarDisparador = randi_range(1, 100) <= probDisparador
+	var generarDisparador = randi_range(1, 100) <= gameManager.probDisparadorActual
 	var indiceDisparador = randi() % cantEnemigos
 	
 	for i in cantEnemigos:
