@@ -1,14 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw8wgjpsyegnv"]
+[gd_scene load_steps=4 format=3 uid="uid://bw8wgjpsyegnv"]
 
 [ext_resource type="Script" uid="uid://r5q28igmsy5q" path="res://Scripts/Onda_Expansiva.gd" id="1_vvgtg"]
+[ext_resource type="Texture2D" uid="uid://ch0fgts6hgki5" path="res://Sprites/OndaExpansiva.png" id="2_bpu8q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ht0l4"]
+radius = 52.009613
 
 [node name="Onda_Expansiva" type="Node2D"]
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
 script = ExtResource("1_vvgtg")
-escalaFinal = 4.5
+escalaFinal = 1.0
 duracion = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -16,3 +19,5 @@ shape = SubResource("CircleShape2D_ht0l4")
 debug_color = Color(0.7294118, 0.16470589, 0.105882354, 0.47058824)
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_bpu8q")

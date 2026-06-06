@@ -10,7 +10,6 @@ func _ready():
 
 func _process(delta):
 	distancia += velNivel * delta
-	print(int(distancia))
 	
 	if distancia >= 2000:
 		probDisparadorActual = 30
