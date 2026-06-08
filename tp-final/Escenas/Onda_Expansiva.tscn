@@ -11,13 +11,16 @@ radius = 52.009613
 [node name="Area2D" type="Area2D" parent="."]
 collision_mask = 2
 script = ExtResource("1_vvgtg")
-escalaFinal = 1.0
-duracion = 0.5
+escalaFinal = 0.8
+duracion = 1.0
+dan = 100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("CircleShape2D_ht0l4")
-debug_color = Color(0.7294118, 0.16470589, 0.105882354, 0.47058824)
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_bpu8q")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

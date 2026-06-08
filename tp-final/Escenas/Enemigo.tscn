@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cw0wfw220nvyo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iyesi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rh4lt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxnwl"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Nave" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iyesi")
+
+[node name="ColisionFisicas" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rh4lt")
+
+[node name="AreaDeteccion" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion"]
+shape = SubResource("RectangleShape2D_nxnwl")
