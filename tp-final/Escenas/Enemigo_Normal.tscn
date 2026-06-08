@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://nlkihi0umtk1"]
+
+[ext_resource type="PackedScene" uid="uid://cw0wfw220nvyo" path="res://Escenas/Enemigo.tscn" id="1_lxxjj"]
+[ext_resource type="Script" uid="uid://dsyuovkanrv4" path="res://Scripts/Enemigo_Normal.gd" id="2_puifg"]
+[ext_resource type="PackedScene" uid="uid://cxow10tdcro5e" path="res://Sprites/Enemigo1.aseprite" id="3_o1ww8"]
+[ext_resource type="PackedScene" uid="uid://bm8vrewbclrtv" path="res://Escenas/Animacion_Explosion.tscn" id="3_pclw5"]
+
+[node name="CharacterBody2D" instance=ExtResource("1_lxxjj")]
+script = ExtResource("2_puifg")
+escenaExplosion = ExtResource("3_pclw5")
+velY = 10.0
+danColision = 10
+vidaMax = 50
+
+[node name="Nave" parent="." index="0" instance=ExtResource("3_o1ww8")]
+scale = Vector2(0.25, 0.25)
+
+[node name="ColisionFisicas" parent="." index="1"]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" parent="AreaDeteccion" index="0"]
+position = Vector2(0, 2)

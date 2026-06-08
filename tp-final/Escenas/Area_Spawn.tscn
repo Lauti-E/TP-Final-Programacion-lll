@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://criq436o12240"]
 
 [ext_resource type="Script" uid="uid://bh2tg4uckmaoq" path="res://Scripts/Area_Spawn.gd" id="1_haeow"]
-[ext_resource type="PackedScene" uid="uid://de48r34tegkj2" path="res://Escenas/Enemigo_Base.tscn" id="2_lxe16"]
-[ext_resource type="PackedScene" uid="uid://d3xegav04x0bv" path="res://Escenas/Enemigo_Disparador.tscn" id="3_xgkvp"]
+[ext_resource type="PackedScene" uid="uid://nlkihi0umtk1" path="res://Escenas/Enemigo_Normal.tscn" id="2_xgkvp"]
+[ext_resource type="PackedScene" uid="uid://b83kxbae1g5u7" path="res://Escenas/Enemigo_Disparador.tscn" id="3_xgkvp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lxe16"]
 
@@ -10,7 +10,7 @@
 script = ExtResource("1_haeow")
 velocidad = 40.0
 cantCarriles = 5
-escenaEnemigo = ExtResource("2_lxe16")
+escenaEnemigo = ExtResource("2_xgkvp")
 escenaEnemigoDisparador = ExtResource("3_xgkvp")
 cantEnemigos = 3
 probDisparador = 30

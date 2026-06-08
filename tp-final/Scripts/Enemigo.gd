@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Enemigo
+
 @export var escenaExplosion: PackedScene
 
 # Variables generales del enemigo.
@@ -11,7 +13,6 @@ var vidaActual: int
 var jugador: Node2D
 
 func _ready():
-	$Nave.play("idle")
 	jugador = get_tree().get_first_node_in_group("Player")
 	
 	vidaActual = vidaMax
