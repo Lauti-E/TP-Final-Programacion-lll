@@ -61,7 +61,7 @@ func _process(_delta):
 	if Input.is_action_pressed("disparar") and puedeDisparar:
 		Disparar()
 	
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("ui_accept") and energiaActual >= energiaMax:
 		CrearOnda()
 
 func _physics_process(_delta):
@@ -244,8 +244,13 @@ func CrearOnda():
 	if escenaOnda == null:
 		return
 	
-	var onda = escenaOnda.instantiate()
+	if energiaActual < energiaMax:
+		return
 	
+	var onda = escenaOnda.instantiate()
 	onda.global_position = global_position
 	
 	get_tree().current_scene.add_child(onda)
+	
+	energiaActual = 0
+	barraEnergia.value = energiaActual

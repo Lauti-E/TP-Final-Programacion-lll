@@ -11,6 +11,7 @@ escenaExplosion = ExtResource("3_pclw5")
 velY = 10.0
 danColision = 10
 vidaMax = 50
+energiaOtorgada = 10
 
 [node name="Nave" parent="." index="0" instance=ExtResource("3_o1ww8")]
 scale = Vector2(0.25, 0.25)

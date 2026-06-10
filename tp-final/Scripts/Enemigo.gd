@@ -9,6 +9,9 @@ class_name Enemigo
 @export var danColision: int = 0
 @export var vidaMax: int = 0
 
+# Variables de energía.
+@export var energiaOtorgada: int = 0
+
 var vidaActual: int
 var jugador: Node2D
 
@@ -55,6 +58,12 @@ func Morir():
 		explosion.global_position = global_position
 		
 		get_tree().current_scene.add_child(explosion)
+	
+	# Buscar al jugador.
+	var jugador = get_tree().get_first_node_in_group("Player")
+	
+	if jugador and jugador.has_method("GanarEnergia"):
+		jugador.GanarEnergia(energiaOtorgada)
 	
 	queue_free()
 
