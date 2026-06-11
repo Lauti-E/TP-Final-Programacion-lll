@@ -1,17 +1,22 @@
 extends Node2D
 
+var gameManager
+
 @export var escenaAsteroide: PackedScene
 
 @export var tiempoMin: float = 0.0
 @export var tiempoMax: float = 0.0
 
 func _ready():
-	await get_tree().create_timer(5.0).timeout
+	gameManager = get_tree().get_first_node_in_group("GameManager")
+	
 	SpawnLoop()
 
 func SpawnLoop():
 	while true:
-		SpawnearAsteroide()
+		
+		if gameManager.generarAsteroide:
+			SpawnearAsteroide()
 		
 		await get_tree().create_timer(tiempoMin, tiempoMax).timeout
 

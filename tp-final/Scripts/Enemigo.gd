@@ -43,15 +43,15 @@ func _on_area_deteccion_body_entered(body):
 			body.RecibirDan(danColision)
 		queue_free()
 
-func RecibirDanio(cantidad: int):
+func RecibirDanio(cantidad: int, daEnergia: bool = true):
 	vidaActual -= cantidad
 	
 	HitFlash()
 	
 	if vidaActual <= 0:
-		Morir()
+		Morir(daEnergia)
 
-func Morir():
+func Morir(daEnergia: bool = true):
 	if escenaExplosion != null:
 		var explosion = escenaExplosion.instantiate()
 		
@@ -60,10 +60,11 @@ func Morir():
 		get_tree().current_scene.add_child(explosion)
 	
 	# Buscar al jugador.
-	var jugador = get_tree().get_first_node_in_group("Player")
+	jugador = get_tree().get_first_node_in_group("Player")
 	
-	if jugador and jugador.has_method("GanarEnergia"):
-		jugador.GanarEnergia(energiaOtorgada)
+	if daEnergia:
+		if jugador and jugador.has_method("GanarEnergia"):
+			jugador.GanarEnergia(energiaOtorgada)
 	
 	queue_free()
 

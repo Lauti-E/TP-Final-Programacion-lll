@@ -19,7 +19,6 @@ func _ready():
 	
 	queue_free()
 
-
 func _on_body_entered(body):
 	if body.has_method("RecibirDanio"):
-		body.RecibirDanio(dan)
+		body.RecibirDanio(dan, false)
