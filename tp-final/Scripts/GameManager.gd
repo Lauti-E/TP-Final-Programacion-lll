@@ -13,8 +13,14 @@ func _ready():
 func _process(delta):
 	distancia += velNivel * delta
 	
+	print(distancia)
+	
 	if distancia >= 1000: generarAsteroide = true
 	
 	if distancia >= 3000:
 		probDisparadorActual = 30
+	if distancia >= 4000:
+		probDisparadorActual = 50
+	if distancia >= 5000:
+		probDisparadorActual = 70
 	

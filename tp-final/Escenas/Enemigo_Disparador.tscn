@@ -12,7 +12,7 @@ escenaProyectil = ExtResource("3_yleis")
 escenaExplosion = ExtResource("2_80bvk")
 velY = 10.0
 danColision = 10
-vidaMax = 50
+vidaMax = 100
 energiaOtorgada = 20
 
 [node name="Nave" parent="." index="0" instance=ExtResource("3_axeom")]

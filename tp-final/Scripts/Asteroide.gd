@@ -19,4 +19,7 @@ func _on_area_2d_body_entered(body):
 		
 		if body.has_method("RecibirDan"):
 			body.RecibirDan(danColision)
+		
+		if body.has_method("Aturdir"):
+			body.Aturdir(2.0)
 		queue_free()

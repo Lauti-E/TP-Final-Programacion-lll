@@ -37,8 +37,10 @@ var energiaActual: int = 0
 # Efecto de parpadeo para el cooldown del dash.
 @export var tiempoParpadeo: float = 0.0
 
+# Variables generales.
 var puedeDashear: bool = true
 var estaDasheando: bool = false
+var aturdido: bool = false
 var ultimaDir:= Vector2.ZERO
 
 # Variables de disparo.
@@ -58,6 +60,9 @@ func _ready():
 	barraEnergia.value = energiaActual
 
 func _process(_delta):
+	if aturdido:
+		return
+	
 	if Input.is_action_pressed("disparar") and puedeDisparar:
 		Disparar()
 	
@@ -65,6 +70,11 @@ func _process(_delta):
 		CrearOnda()
 
 func _physics_process(_delta):
+	if aturdido:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+	
 	var dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
 	if dir != Vector2.ZERO:
@@ -233,6 +243,16 @@ func SombraLoop():
 	await get_tree().create_timer(tiempoEntreSombras).timeout
 	
 	SombraLoop()
+
+func Aturdir(tiempo: float):
+	if aturdido:
+		return
+	
+	aturdido = true
+	
+	await get_tree().create_timer(tiempo).timeout
+	
+	aturdido = false
 
 func GanarEnergia(cantidad:int):
 	energiaActual += cantidad

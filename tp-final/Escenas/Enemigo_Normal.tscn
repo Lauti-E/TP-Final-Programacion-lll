@@ -10,7 +10,7 @@ script = ExtResource("2_puifg")
 escenaExplosion = ExtResource("3_pclw5")
 velY = 10.0
 danColision = 10
-vidaMax = 50
+vidaMax = 60
 energiaOtorgada = 10
 
 [node name="Nave" parent="." index="0" instance=ExtResource("3_o1ww8")]
