@@ -4,8 +4,10 @@ extends CharacterBody2D
 @onready var barraVida = $"../UI/BarraVida"
 @onready var barraEnergia = $"../UI/BarraEnergia"
 
-# Varibles del personaje.
+# Varibles de velocidad.
 @export var velocidad := 0.0
+@export var aceleracion: float = 0.0
+@export var desaceleracion: float = 0.0
 
 # Sistema de vida.
 @export var vidaMax: int = 0
@@ -86,7 +88,12 @@ func _physics_process(_delta):
 	if estaDasheando:
 		velocity = ultimaDir * velDash
 	else:
-		velocity = dir * velocidad
+		var objetivo = dir * velocidad
+		
+		if dir != Vector2.ZERO:
+			velocity = velocity.move_toward(objetivo, aceleracion * _delta)
+		else:
+			velocity = velocity.move_toward(Vector2.ZERO, desaceleracion * _delta)
 	
 	move_and_slide()
 	
