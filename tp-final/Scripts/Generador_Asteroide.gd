@@ -15,7 +15,7 @@ func _ready():
 func SpawnLoop():
 	while true:
 		
-		if gameManager.generarAsteroide:
+		if gameManager.generarAsteroide and !gameManager.eventoBossActivo: 
 			SpawnearAsteroide()
 		
 		await get_tree().create_timer(
@@ -24,7 +24,7 @@ func SpawnLoop():
 				gameManager.tiempoAsteroideMax
 			)
 		).timeout
-
+		
 func SpawnearAsteroide():
 	if escenaAsteroide == null:
 		return

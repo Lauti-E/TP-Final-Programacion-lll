@@ -1,16 +1,22 @@
 extends Node2D
 
+var gameManager
+
 @export var escenaArea: PackedScene
 
 @export var tiempoMin: float = 3.0
 @export var tiempoMax: float = 10.0
 
 func _ready():
+	gameManager = get_tree().get_first_node_in_group("GameManager")
+
 	SpawnLoop()
 
 func SpawnLoop():
 	while true:
-		SpawnearArea()
+
+		if gameManager != null and !gameManager.eventoBossActivo:
+			SpawnearArea()
 		
 		await get_tree().create_timer(randf_range(tiempoMin, tiempoMax)).timeout
 
