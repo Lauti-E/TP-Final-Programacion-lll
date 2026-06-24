@@ -57,7 +57,7 @@ func GenerarBoss():
 	var boss = escenaBoss.instantiate()
 	var tamVentana = get_viewport_rect().size
 
-	boss.global_position = Vector2(tamVentana.x / 2, 100)
+	boss.global_position = Vector2(tamVentana.x / 2, -100)
 
 	get_tree().current_scene.add_child(boss)
 

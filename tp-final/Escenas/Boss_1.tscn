@@ -10,6 +10,8 @@ radius = 10.338709
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_lhpyk")
+velEntrada = 20.0
+posCombateY = 150.0
 
 [node name="Boss1" parent="." instance=ExtResource("2_lvdsw")]
 scale = Vector2(0.5, 0.5)
