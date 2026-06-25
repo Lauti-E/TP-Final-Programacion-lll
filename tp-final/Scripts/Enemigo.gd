@@ -17,6 +17,7 @@ var jugador: Node2D
 
 func _ready():
 	jugador = get_tree().get_first_node_in_group("Player")
+	add_to_group("Enemigo")
 	
 	vidaActual = vidaMax
 

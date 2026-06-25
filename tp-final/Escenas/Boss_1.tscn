@@ -2,22 +2,22 @@
 
 [ext_resource type="Script" uid="uid://bkbfsbstr7c2v" path="res://Scripts/Boss_1.gd" id="1_lhpyk"]
 [ext_resource type="PackedScene" uid="uid://bqvgl7i8iuc0a" path="res://Sprites/Boss1.aseprite" id="2_lvdsw"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_17j6o"]
-radius = 10.338709
+[ext_resource type="PackedScene" uid="uid://bm8vrewbclrtv" path="res://Escenas/Animacion_Explosion.tscn" id="2_q1w2f"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_lhpyk")
+escenaExplosion = ExtResource("2_q1w2f")
+vidaMax = 200
 velEntrada = 10.0
 velLateral = 20.0
 posCombateY = 50.0
+danColision = 10
 
 [node name="Boss1" parent="." instance=ExtResource("2_lvdsw")]
 scale = Vector2(0.5, 0.5)
 animation = &"idle"
 
-[node name="ColisionFisicas" type="CollisionShape2D" parent="."]
-scale = Vector2(3, 3)
-shape = SubResource("CircleShape2D_17j6o")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 31, 11, 8, 38, -4, 9, -16, -9, -16, -38, -4, -10, 8)

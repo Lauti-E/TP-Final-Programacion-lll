@@ -3,7 +3,7 @@ extends Node2D
 @export var velNivel: float = 0.0
 
 # Variables para generar enemigos/obstáculos, etc.
-var distancia: float = 9000.0
+var distancia: float = 9500.0
 var probDisparadorActual: int = 0
 
 var generarAsteroide: bool = false
