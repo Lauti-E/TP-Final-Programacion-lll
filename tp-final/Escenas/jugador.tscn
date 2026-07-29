@@ -13,11 +13,11 @@ height = 25.0
 [node name="Jugador" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 26
 script = ExtResource("1_pd7u1")
-velocidad = 100.0
+velocidad = 80.0
 aceleracion = 1000.0
-desaceleracion = 350.0
+desaceleracion = 400.0
 vidaMax = 100
-tiempoInvulnerable = 2.0
+tiempoInvulnerable = 1.0
 energiaMax = 100
 escenaOnda = ExtResource("2_muoba")
 escenaProyectil = ExtResource("3_5jvw8")
@@ -27,6 +27,7 @@ tiempoEntreSombras = 0.05
 velDash = 1100.0
 durDash = 0.25
 cooldownDash = 5.0
+desaceleracionEmpuje = 300.0
 tiempoParpadeo = 0.2
 
 [node name="Personaje" parent="." instance=ExtResource("3_8g85c")]

@@ -4,9 +4,6 @@ var gameManager
 
 @export var escenaArea: PackedScene
 
-@export var tiempoMin: float = 3.0
-@export var tiempoMax: float = 10.0
-
 func _ready():
 	gameManager = get_tree().get_first_node_in_group("GameManager")
 
@@ -18,7 +15,7 @@ func SpawnLoop():
 		if gameManager != null and !gameManager.eventoBossActivo:
 			SpawnearArea()
 		
-		await get_tree().create_timer(randf_range(tiempoMin, tiempoMax)).timeout
+		await get_tree().create_timer(randf_range(gameManager.tiempoAreaMin, gameManager.tiempoAreaMax)).timeout
 
 func SpawnearArea():
 	if escenaArea == null:

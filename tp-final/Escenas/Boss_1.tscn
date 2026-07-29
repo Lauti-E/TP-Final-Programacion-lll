@@ -1,23 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwk65262ev8fu"]
+[gd_scene load_steps=5 format=3 uid="uid://dwk65262ev8fu"]
 
 [ext_resource type="Script" uid="uid://bkbfsbstr7c2v" path="res://Scripts/Boss_1.gd" id="1_lhpyk"]
 [ext_resource type="PackedScene" uid="uid://bqvgl7i8iuc0a" path="res://Sprites/Boss1.aseprite" id="2_lvdsw"]
 [ext_resource type="PackedScene" uid="uid://bm8vrewbclrtv" path="res://Escenas/Animacion_Explosion.tscn" id="2_q1w2f"]
+[ext_resource type="PackedScene" uid="uid://bs1rgflygtucn" path="res://Escenas/Proyectil_Enemigo.tscn" id="3_q1w2f"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 4
 script = ExtResource("1_lhpyk")
 escenaExplosion = ExtResource("2_q1w2f")
-vidaMax = 200
+escenaProyectil = ExtResource("3_q1w2f")
+vidaMax = 1000
 velEntrada = 10.0
 velLateral = 20.0
 posCombateY = 50.0
-danColision = 10
+tiempoDisparos = 0.2
+cantidadDisparos = 3
+velocidadProyectil = 150.0
+danioProyectil = 30
+multiVel = 3.5
+multiProy = 1.5
+multiCad = 1.0
+danColision = 20
+fuerzaEmpuje = 80.0
 
 [node name="Boss1" parent="." instance=ExtResource("2_lvdsw")]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.3, 0.3)
 animation = &"idle"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, 31, 11, 8, 38, -4, 9, -16, -9, -16, -38, -4, -10, 8)
+position = Vector2(0, -1)
+scale = Vector2(0.59786177, 0.58769405)
+polygon = PackedVector2Array(0, 34.03131, 5.0178823, 25.523483, 10.035765, 10.2093935, 21.744156, 6.8062625, 38.470432, -1.7015656, 8.363137, -13.612525, -8.363137, -13.612525, -38.470432, -1.7015656, -21.744156, 6.8062625, -10.035765, 10.2093935, -5.0178823, 25.523483)
+
+[node name="Timer Disparo" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Punto Disparo" type="Marker2D" parent="."]
+position = Vector2(0, 14)
+
+[node name="AreaDeteccion" type="Area2D" parent="."]
+position = Vector2(-22.480453, -1.6951437)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaDeteccion"]
+position = Vector2(22.480453, 2.6951437)
+polygon = PackedVector2Array(0, 20, 8, 5, 25, -3, 5, -11, -5, -11, -25, -3, -8, 5)
+
+[connection signal="timeout" from="Timer Disparo" to="." method="_on_timer_disparo_timeout"]
+[connection signal="body_entered" from="AreaDeteccion" to="." method="_on_area_deteccion_body_entered"]

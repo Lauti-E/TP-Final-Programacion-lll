@@ -36,12 +36,17 @@ var energiaActual: int = 0
 @export var durDash: float = 0.0
 @export var cooldownDash: float = 0
 
+var puedeDashear: bool = true
+var estaDasheando: bool = false
+
+# Variables para el empuje.
+@export var desaceleracionEmpuje: float = 0.0
+var empuje := Vector2.ZERO
+
 # Efecto de parpadeo para el cooldown del dash.
 @export var tiempoParpadeo: float = 0.0
 
 # Variables generales.
-var puedeDashear: bool = true
-var estaDasheando: bool = false
 var aturdido: bool = false
 var ultimaDir:= Vector2.ZERO
 
@@ -95,6 +100,10 @@ func _physics_process(_delta):
 		else:
 			velocity = velocity.move_toward(Vector2.ZERO, desaceleracion * _delta)
 	
+	velocity += empuje
+
+	empuje = empuje.move_toward(Vector2.ZERO, desaceleracionEmpuje * _delta)
+
 	move_and_slide()
 	
 	var tamVentana = get_viewport_rect().size
@@ -260,6 +269,9 @@ func Aturdir(tiempo: float):
 	await get_tree().create_timer(tiempo).timeout
 	
 	aturdido = false
+
+func Empujar(direccion: Vector2, fuerza: float):
+	empuje = direccion * fuerza
 
 func GanarEnergia(cantidad:int):
 	energiaActual += cantidad

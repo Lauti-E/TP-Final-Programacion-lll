@@ -9,6 +9,8 @@
 [node name="CharacterBody2D" instance=ExtResource("1_6mnf1")]
 script = ExtResource("1_yleis")
 escenaProyectil = ExtResource("3_yleis")
+velocidadProyectil = 80.0
+danioProyectil = 10
 escenaExplosion = ExtResource("2_80bvk")
 velY = 10.0
 danColision = 10
