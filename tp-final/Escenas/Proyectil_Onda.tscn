@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dalbyia1yi2c6"]
+
+[ext_resource type="Texture2D" uid="uid://dcfs8r2uoiyqf" path="res://Sprites/Proyectil.png" id="1_rd336"]
+[ext_resource type="Script" uid="uid://cq380fmbaia0l" path="res://Scripts/Proyectil_Onda.gd" id="1_wfqu4"]
+[ext_resource type="PackedScene" uid="uid://bw8wgjpsyegnv" path="res://Escenas/Onda_Expansiva.tscn" id="2_hmfsj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wfqu4"]
+radius = 4.0
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("1_wfqu4")
+escenaOnda = ExtResource("2_hmfsj")
+velocidad = 50.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_rd336")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_wfqu4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

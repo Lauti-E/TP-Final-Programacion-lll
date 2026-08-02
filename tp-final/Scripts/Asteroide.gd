@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var velCaida: float = 0.0
 @export var danColision: int = 0
 
+func _ready():
+	add_to_group("Asteroide")
+
 func _physics_process(_delta):
 	velocity = Vector2(0, velCaida)
 	

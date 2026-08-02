@@ -87,18 +87,18 @@ func _physics_process(_delta):
 			dir = -1
 
 		# Probabilidad de cambiar de dirección al pasar por el centro.
-		if abs(global_position.x - centro) < 20 and !cambio:
-			if randi_range(1, 100) <= probCambioDir:
-				dir *= -1
-			
-			cambio = true
+		if fase2:
+			if abs(global_position.x - centro) < 20 and !cambio:
+				if randi_range(1, 100) <= probCambioDir:
+					dir *= -1
+				
+				cambio = true
 
-		if abs(global_position.x - centro) > 40:
-			cambio = false
-
+			if abs(global_position.x - centro) > 40:
+				cambio = false
 	move_and_slide()
 
-func RecibirDanio(cantidad: int):
+func RecibirDanio(cantidad: int, daEnergia: bool = false):
 	if entrando:
 		return
 
@@ -107,14 +107,14 @@ func RecibirDanio(cantidad: int):
 
 	HitFlash()
 
-	if vidaActual <= (vidaMax / 2) and !fase2:
+	if vidaActual <= (vidaMax / 2.0) and !fase2:
 		Fase2()
 
 	if vidaActual <= 0:
 		barraBoss.visible = false
-		Morir()
+		Morir(daEnergia)
 
-func Morir():
+func Morir(_daEnergia: bool = false):
 	if escenaExplosion != null:
 		var explosion = escenaExplosion.instantiate()
 

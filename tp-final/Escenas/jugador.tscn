@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://csv6vgf1urjai"]
+[gd_scene load_steps=8 format=3 uid="uid://csv6vgf1urjai"]
 
 [ext_resource type="Script" uid="uid://dfw0ecxv5gxgb" path="res://Scripts/Jugador.gd" id="1_pd7u1"]
 [ext_resource type="PackedScene" uid="uid://bw8wgjpsyegnv" path="res://Escenas/Onda_Expansiva.tscn" id="2_muoba"]
 [ext_resource type="PackedScene" uid="uid://b0bgdmqtg1w43" path="res://Escenas/Proyectil.tscn" id="3_5jvw8"]
 [ext_resource type="PackedScene" uid="uid://c0bno706jdmev" path="res://Sprites/Personaje.aseprite" id="3_8g85c"]
 [ext_resource type="PackedScene" uid="uid://cmhs3p0lxwb4x" path="res://Escenas/Sombra_Dash.tscn" id="3_muoba"]
+[ext_resource type="PackedScene" uid="uid://dalbyia1yi2c6" path="res://Escenas/Proyectil_Onda.tscn" id="4_fwv5a"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pd7u1"]
 radius = 8.999999
@@ -22,6 +23,7 @@ energiaMax = 100
 escenaOnda = ExtResource("2_muoba")
 escenaProyectil = ExtResource("3_5jvw8")
 cadenciaDisparo = 0.5
+escenaProyectilOnda = ExtResource("4_fwv5a")
 escenaSombra = ExtResource("3_muoba")
 tiempoEntreSombras = 0.05
 velDash = 1100.0

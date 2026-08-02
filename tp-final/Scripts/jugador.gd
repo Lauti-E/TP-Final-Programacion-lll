@@ -18,14 +18,16 @@ var invulnerable: bool = false
 
 # Sistema de energía.
 @export var energiaMax: int = 0
-var energiaActual: int = 0
+var energiaActual: int = 100
 
 # Onda expansiva.
 @export var escenaOnda: PackedScene
 
-# Variables del proyectil.
+# Variables de los proyectiles.
 @export var escenaProyectil: PackedScene
 @export var cadenciaDisparo: float = 0.0
+
+@export var escenaProyectilOnda: PackedScene
 
 # Variables para la sombra del dash.
 @export var escenaSombra: PackedScene
@@ -72,6 +74,9 @@ func _process(_delta):
 	
 	if Input.is_action_pressed("disparar") and puedeDisparar:
 		Disparar()
+	
+	if Input.is_action_just_pressed("proyectil_onda") and energiaActual >= energiaMax:
+		DispararOnda()
 	
 	if Input.is_action_just_pressed("ui_accept") and energiaActual >= energiaMax:
 		CrearOnda()
@@ -128,6 +133,22 @@ func Disparar():
 	
 	puedeDisparar = true
 
+func DispararOnda():
+	if escenaProyectilOnda == null:
+		return
+
+	if energiaActual < energiaMax:
+		return
+	
+	var proyectilOnda = escenaProyectilOnda.instantiate()
+
+	proyectilOnda.global_position = $"Punto Proyectil".global_position
+
+	get_tree().current_scene.add_child(proyectilOnda)
+
+	energiaActual = 0
+	barraEnergia.value = energiaActual
+	
 func RecibirDan(cantidad: int):
 	if invulnerable or estaDasheando:
 		return
