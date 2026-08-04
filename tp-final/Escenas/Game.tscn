@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bn5gunuqsymqu"]
+[gd_scene load_steps=15 format=3 uid="uid://bn5gunuqsymqu"]
 
 [ext_resource type="Script" uid="uid://bolwnad1tbomg" path="res://Scripts/GameManager.gd" id="1_dawtg"]
 [ext_resource type="PackedScene" uid="uid://dwk65262ev8fu" path="res://Escenas/Boss_1.tscn" id="2_rl3b6"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://b8g1xl67ahks2" path="res://Scripts/Spawner_Areas.gd" id="7_ib86i"]
 [ext_resource type="PackedScene" uid="uid://criq436o12240" path="res://Escenas/Area_Spawn.tscn" id="8_am5uq"]
 [ext_resource type="PackedScene" uid="uid://d0lmxkgs7kyov" path="res://Escenas/Generador_Asteroide.tscn" id="9_ipq14"]
+[ext_resource type="PackedScene" uid="uid://dygeroiogonjy" path="res://Escenas/Menu_Pausa.tscn" id="11_rl3b6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opkev"]
 bg_color = Color(0.16862746, 0.16862746, 0.16862746, 0.6666667)
@@ -144,3 +145,5 @@ script = ExtResource("7_ib86i")
 escenaArea = ExtResource("8_am5uq")
 
 [node name="Generador Asteroide" parent="." instance=ExtResource("9_ipq14")]
+
+[node name="CanvasPausa" parent="." instance=ExtResource("11_rl3b6")]

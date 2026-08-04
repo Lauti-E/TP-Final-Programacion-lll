@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var menuPausa = $"../CanvasPausa"
+
 @export var velNivel: float = 0.0
 
 # Variables para generar enemigos/obstáculos, etc.
@@ -25,12 +27,13 @@ var bossGenerado: bool = false
 func _ready():
 	add_to_group("GameManager")
 
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	menuPausa.visible = false
+
 func _process(delta):
 	# Aumentar la distancia del nivel constantemente.
 	if distancia <= 10000:
 		distancia += velNivel * delta
-	
-	print(distancia)
 	
 	# Según la distancia, ajustar la probabilidad de generar disparadores y asteroides.
 	if distancia >= 1000: generarAsteroide = true
@@ -63,6 +66,11 @@ func _process(delta):
 		eventoBossActivo = true
 		GenerarBoss()
 
+func _physics_process(_delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		print("Escape")
+		EnPausa()
+
 func GenerarBoss():
 	if bossGenerado:
 		return
@@ -75,5 +83,13 @@ func GenerarBoss():
 	get_tree().current_scene.add_child(boss)
 
 	bossGenerado = true
+
+func EnPausa():
+	if get_tree().paused:
+		get_tree().paused = false
+		menuPausa.visible = false
+	else:
+		get_tree().paused = true
+		menuPausa.visible = true
 
 	
