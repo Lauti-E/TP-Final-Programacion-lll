@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bn5gunuqsymqu"]
+[gd_scene load_steps=17 format=3 uid="uid://bn5gunuqsymqu"]
 
 [ext_resource type="Script" uid="uid://bolwnad1tbomg" path="res://Scripts/GameManager.gd" id="1_dawtg"]
 [ext_resource type="PackedScene" uid="uid://dwk65262ev8fu" path="res://Escenas/Boss_1.tscn" id="2_rl3b6"]
@@ -8,9 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://jbbxqcbwekeq" path="res://Sprites/Fondo Galaxia/Estrellas Lejanas.png" id="5_a5oj8"]
 [ext_resource type="Texture2D" uid="uid://dwn52dpsqc0dn" path="res://Sprites/Fondo Galaxia/Estrellas Cercanas.png" id="6_f0027"]
 [ext_resource type="Script" uid="uid://b8g1xl67ahks2" path="res://Scripts/Spawner_Areas.gd" id="7_ib86i"]
+[ext_resource type="Script" uid="uid://cpywde15jwbpo" path="res://Scripts/Spawner_Power_Up.gd" id="8_a5oj8"]
 [ext_resource type="PackedScene" uid="uid://criq436o12240" path="res://Escenas/Area_Spawn.tscn" id="8_am5uq"]
 [ext_resource type="PackedScene" uid="uid://d0lmxkgs7kyov" path="res://Escenas/Generador_Asteroide.tscn" id="9_ipq14"]
 [ext_resource type="PackedScene" uid="uid://dygeroiogonjy" path="res://Escenas/Menu_Pausa.tscn" id="11_rl3b6"]
+[ext_resource type="PackedScene" uid="uid://3ufrc8ie2mx" path="res://Escenas/PowerUp.tscn" id="12_jaav8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opkev"]
 bg_color = Color(0.16862746, 0.16862746, 0.16862746, 0.6666667)
@@ -53,6 +55,7 @@ corner_radius_bottom_left = 5
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("1_dawtg")
 velNivel = 50.0
+probPowerUpActual = 0.1
 escenaBoss = ExtResource("2_rl3b6")
 
 [node name="Nivel1" parent="." instance=ExtResource("2_uqrhm")]
@@ -108,6 +111,13 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_pr06s")
 value = 100.0
 show_percentage = false
 
+[node name="TiempoPowerUp" type="Label" parent="UI"]
+offset_left = 5.0
+offset_top = 212.0
+offset_right = 127.0
+offset_bottom = 235.0
+scale = Vector2(0.5, 0.5)
+
 [node name="FondoParallax" type="ParallaxBackground" parent="."]
 
 [node name="EspacioLayer" type="ParallaxLayer" parent="FondoParallax"]
@@ -140,6 +150,11 @@ offset_bottom = 240.0
 texture = ExtResource("6_f0027")
 stretch_mode = 1
 
+[node name="SpawnerPowerUp" type="Node2D" parent="."]
+script = ExtResource("8_a5oj8")
+escenaPowerUp = ExtResource("12_jaav8")
+tiempoEntreIntentos = 5.0
+
 [node name="SpawnerAreas" type="Node2D" parent="."]
 script = ExtResource("7_ib86i")
 escenaArea = ExtResource("8_am5uq")
@@ -147,3 +162,4 @@ escenaArea = ExtResource("8_am5uq")
 [node name="Generador Asteroide" parent="." instance=ExtResource("9_ipq14")]
 
 [node name="CanvasPausa" parent="." instance=ExtResource("11_rl3b6")]
+visible = false

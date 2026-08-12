@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dygeroiogonjy"]
 
-[ext_resource type="Script" uid="uid://i0u1nqenf5on" path="res://Escenas/Menu_Pausa.gd" id="1_4kavh"]
+[ext_resource type="Script" uid="uid://i0u1nqenf5on" path="res://Scripts/Menu_Pausa.gd" id="1_4kavh"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 

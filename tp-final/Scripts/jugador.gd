@@ -1,5 +1,11 @@
 extends CharacterBody2D
 
+# Referencias y variables para los Power-Ups.
+const Power_Up = preload("res://Scripts/Power_Up.gd")
+@onready var textoPowerUp = $"../UI/TiempoPowerUp"
+var duracionPowerUp: float
+var tiempoRestante: float
+
 # LLamada a la barra de vida y energía.
 @onready var barraVida = $"../UI/BarraVida"
 @onready var barraEnergia = $"../UI/BarraEnergia"
@@ -18,7 +24,7 @@ var invulnerable: bool = false
 
 # Sistema de energía.
 @export var energiaMax: int = 0
-var energiaActual: int = 100
+var energiaActual: int = 0
 
 # Onda expansiva.
 @export var escenaOnda: PackedScene
@@ -26,6 +32,7 @@ var energiaActual: int = 100
 # Variables de los proyectiles.
 @export var escenaProyectil: PackedScene
 @export var cadenciaDisparo: float = 0.0
+var cadenciaBase: float
 
 @export var escenaProyectilOnda: PackedScene
 
@@ -68,10 +75,19 @@ func _ready():
 	barraEnergia.max_value = energiaMax
 	barraEnergia.value = energiaActual
 
-func _process(_delta):
+	cadenciaBase = cadenciaDisparo
+
+func _process(delta):
 	if aturdido:
 		return
 	
+	if tiempoRestante > 0:
+		tiempoRestante = tiempoRestante - delta
+		textoPowerUp.text = "PowerUp: " + str(snapped(tiempoRestante, 0.1))
+		textoPowerUp.visible = true
+	else:
+		textoPowerUp.visible = false
+
 	if Input.is_action_pressed("disparar") and puedeDisparar:
 		Disparar()
 	
@@ -314,3 +330,12 @@ func CrearOnda():
 	
 	energiaActual = 0
 	barraEnergia.value = energiaActual
+
+func RecibirPowerUp(tipo, duracion):
+	match tipo:
+		Power_Up.TipoPowerUp.VelocidadAtaque:
+			cadenciaDisparo *= 0.7
+			duracionPowerUp = duracion
+			tiempoRestante = duracion
+			await get_tree().create_timer(duracion).timeout
+			cadenciaDisparo = cadenciaBase

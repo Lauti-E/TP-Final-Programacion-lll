@@ -6,7 +6,8 @@ extends Node2D
 
 # Variables para generar enemigos/obstáculos, etc.
 @export var distancia: float = 0.0
-var probDisparadorActual: int = 0
+@export var probDisparadorActual: int = 0
+@export var probPowerUpActual: float = 0.0
 
 # Variables para controlar la generación de los asteroides.
 var generarAsteroide: bool = false
@@ -56,10 +57,13 @@ func _process(delta):
 	
 	if distancia >= 2000:
 		probDisparadorActual = 40
+		probPowerUpActual = 0.2
 	if distancia >= 4000:
 		probDisparadorActual = 50
+		probPowerUpActual = 0.4
 	if distancia >= 6000:
 		probDisparadorActual = 60
+		probPowerUpActual = 0.6
 	
 	# Activar el evento del boss cuando se alcance cierta distancia.
 	if distancia >= 10000 and !eventoBossActivo:
@@ -68,7 +72,6 @@ func _process(delta):
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
-		print("Escape")
 		EnPausa()
 
 func GenerarBoss():

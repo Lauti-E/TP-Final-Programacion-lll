@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://3ufrc8ie2mx"]
+
+[ext_resource type="Script" uid="uid://dtmo105rbc30e" path="res://Scripts/Power_Up.gd" id="1_s2xhe"]
+[ext_resource type="Texture2D" uid="uid://bv7bynt00j0bh" path="res://Sprites/VelocidadAtaque.png" id="1_wqvgv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqvgv"]
+size = Vector2(10, 10.526316)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_s2xhe")
+duracion = 5.0
+velCaida = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_wqvgv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.95, 0.95)
+shape = SubResource("RectangleShape2D_wqvgv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
