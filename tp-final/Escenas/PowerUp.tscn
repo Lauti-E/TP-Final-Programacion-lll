@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wqvgv"]
 size = Vector2(10, 10.526316)
 
-[node name="Area2D" type="Area2D"]
+[node name="PowerUp" type="Area2D"]
 script = ExtResource("1_s2xhe")
 duracion = 5.0
 velCaida = 10.0

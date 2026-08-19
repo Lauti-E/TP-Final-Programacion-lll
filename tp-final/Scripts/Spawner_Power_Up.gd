@@ -5,6 +5,7 @@ var gameManager
 
 # Tiempo entre intentos de generar un PowerUp.
 @export var tiempoEntreIntentos: float = 0.0
+@export var distanciaMinEnemigo: float = 0.0
 
 func _ready():
 	gameManager = get_tree().get_first_node_in_group("GameManager")
@@ -21,12 +22,25 @@ func IntentarGenerarPowerUp():
 		return
 
 	if randf() < gameManager.probPowerUpActual:
-			var powerUp = escenaPowerUp.instantiate()
 			var anchoVentana = get_viewport_rect().size.x
 			var margen = 20
 			
 			var randomX = randf_range(margen, anchoVentana - margen)
-			powerUp.global_position = Vector2(randomX, -20)
+			var posPowerUp = Vector2(randomX, -20)
 
+			if DetectarEnemigo(randomX):
+				return
+
+			var powerUp = escenaPowerUp.instantiate()
+			powerUp.global_position = posPowerUp
 			get_tree().current_scene.add_child(powerUp)
 			print("Generar PowerUp")
+
+func DetectarEnemigo(posicion: float):
+	for enemigo in get_tree().get_nodes_in_group("Enemigo"):
+		var distanciaX = abs(enemigo.global_position.x - posicion)
+
+		if distanciaX < distanciaMinEnemigo:
+			print(distanciaX)
+			return true
+	return false

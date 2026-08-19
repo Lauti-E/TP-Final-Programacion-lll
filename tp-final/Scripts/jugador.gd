@@ -339,3 +339,9 @@ func RecibirPowerUp(tipo, duracion):
 			tiempoRestante = duracion
 			await get_tree().create_timer(duracion).timeout
 			cadenciaDisparo = cadenciaBase
+
+func RecuperarVida(cantidad: int):
+	vidaActual += cantidad
+	vidaActual = min(vidaActual, vidaMax)
+
+	barraVida.value = vidaActual

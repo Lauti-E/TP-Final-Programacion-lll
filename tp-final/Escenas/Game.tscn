@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bn5gunuqsymqu"]
+[gd_scene load_steps=19 format=3 uid="uid://bn5gunuqsymqu"]
 
 [ext_resource type="Script" uid="uid://bolwnad1tbomg" path="res://Scripts/GameManager.gd" id="1_dawtg"]
 [ext_resource type="PackedScene" uid="uid://dwk65262ev8fu" path="res://Escenas/Boss_1.tscn" id="2_rl3b6"]
@@ -10,6 +10,8 @@
 [ext_resource type="Script" uid="uid://b8g1xl67ahks2" path="res://Scripts/Spawner_Areas.gd" id="7_ib86i"]
 [ext_resource type="Script" uid="uid://cpywde15jwbpo" path="res://Scripts/Spawner_Power_Up.gd" id="8_a5oj8"]
 [ext_resource type="PackedScene" uid="uid://criq436o12240" path="res://Escenas/Area_Spawn.tscn" id="8_am5uq"]
+[ext_resource type="Script" uid="uid://c8q2xwxy4d68s" path="res://Scripts/Spawner_Corazon.gd" id="8_f0027"]
+[ext_resource type="PackedScene" uid="uid://bwd6tsvsbs7wn" path="res://Escenas/Corazon.tscn" id="9_ib86i"]
 [ext_resource type="PackedScene" uid="uid://d0lmxkgs7kyov" path="res://Escenas/Generador_Asteroide.tscn" id="9_ipq14"]
 [ext_resource type="PackedScene" uid="uid://dygeroiogonjy" path="res://Escenas/Menu_Pausa.tscn" id="11_rl3b6"]
 [ext_resource type="PackedScene" uid="uid://3ufrc8ie2mx" path="res://Escenas/PowerUp.tscn" id="12_jaav8"]
@@ -55,7 +57,9 @@ corner_radius_bottom_left = 5
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("1_dawtg")
 velNivel = 50.0
-probPowerUpActual = 0.1
+nivelActual = 1
+distancia = 5000.0
+probPowerUpActual = 0.9
 escenaBoss = ExtResource("2_rl3b6")
 
 [node name="Nivel1" parent="." instance=ExtResource("2_uqrhm")]
@@ -150,10 +154,18 @@ offset_bottom = 240.0
 texture = ExtResource("6_f0027")
 stretch_mode = 1
 
+[node name="SpawnerCorazon" type="Node2D" parent="."]
+script = ExtResource("8_f0027")
+escenaCorazon = ExtResource("9_ib86i")
+tiempoEntreIntentos = 5.0
+probGenerarCorazon = 0.15
+distanciaMinEnemigo = 2.0
+
 [node name="SpawnerPowerUp" type="Node2D" parent="."]
 script = ExtResource("8_a5oj8")
 escenaPowerUp = ExtResource("12_jaav8")
 tiempoEntreIntentos = 5.0
+distanciaMinEnemigo = 5.0
 
 [node name="SpawnerAreas" type="Node2D" parent="."]
 script = ExtResource("7_ib86i")

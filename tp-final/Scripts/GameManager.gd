@@ -3,6 +3,7 @@ extends Node2D
 @onready var menuPausa = $"../CanvasPausa"
 
 @export var velNivel: float = 0.0
+@export var nivelActual: int = 0
 
 # Variables para generar enemigos/obstáculos, etc.
 @export var distancia: float = 0.0
@@ -36,34 +37,8 @@ func _process(delta):
 	if distancia <= 10000:
 		distancia += velNivel * delta
 	
-	# Según la distancia, ajustar la probabilidad de generar disparadores y asteroides.
-	if distancia >= 1000: generarAsteroide = true
-
-	if distancia >= 2000:
-		tiempoAsteroideMin = 4.0
-		tiempoAsteroideMax = 8.0
-
-		tiempoAreaMin = 4.0
-		tiempoAreaMax = 8.0
-	if distancia >= 4000:
-		tiempoAsteroideMin = 3.0
-		tiempoAsteroideMax = 6.0
-
-		tiempoAreaMin = 4.0
-		tiempoAreaMax = 6.0
-	if distancia >= 6000:
-		tiempoAsteroideMin = 3.0
-		tiempoAsteroideMax = 6.0
-	
-	if distancia >= 2000:
-		probDisparadorActual = 40
-		probPowerUpActual = 0.2
-	if distancia >= 4000:
-		probDisparadorActual = 50
-		probPowerUpActual = 0.4
-	if distancia >= 6000:
-		probDisparadorActual = 60
-		probPowerUpActual = 0.6
+	if nivelActual == 1:
+		ConfigurarNivel1()
 	
 	# Activar el evento del boss cuando se alcance cierta distancia.
 	if distancia >= 10000 and !eventoBossActivo:
@@ -73,6 +48,38 @@ func _process(delta):
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		EnPausa()
+
+func ConfigurarNivel1():
+	# Según la distancia, ajustar la probabilidad de generar disparadores y asteroides.
+	if distancia >= 6000:
+		tiempoAsteroideMin = 3.0
+		tiempoAsteroideMax = 6.0
+
+		tiempoAreaMin = 3.0
+		tiempoAreaMax = 6.0
+
+		probDisparadorActual = 40
+		probPowerUpActual = 0.6
+	elif distancia >= 4000:
+		tiempoAsteroideMin = 3.0
+		tiempoAsteroideMax = 6.0
+
+		tiempoAreaMin = 4.0
+		tiempoAreaMax = 6.0
+
+		probDisparadorActual = 30
+		probPowerUpActual = 0.4
+	elif distancia >= 2000:
+		tiempoAsteroideMin = 4.0
+		tiempoAsteroideMax = 8.0
+
+		tiempoAreaMin = 4.0
+		tiempoAreaMax = 8.0
+
+		probDisparadorActual = 20
+		probPowerUpActual = 0.2
+	elif distancia >= 1000: 
+		generarAsteroide = true
 
 func GenerarBoss():
 	if bossGenerado:
