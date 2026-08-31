@@ -59,27 +59,27 @@ func ConfigurarNivel1():
 		tiempoAreaMax = 6.0
 
 		probDisparadorActual = 40
-		probPowerUpActual = 0.6
+		probPowerUpActual = 0.4
 	elif distancia >= 4000:
-		tiempoAsteroideMin = 3.0
-		tiempoAsteroideMax = 6.0
+		generarAsteroide = true
+
+		tiempoAsteroideMin = 4.0
+		tiempoAsteroideMax = 8.0
 
 		tiempoAreaMin = 4.0
 		tiempoAreaMax = 6.0
 
 		probDisparadorActual = 30
-		probPowerUpActual = 0.4
+		probPowerUpActual = 0.3
 	elif distancia >= 2000:
-		tiempoAsteroideMin = 4.0
-		tiempoAsteroideMax = 8.0
 
 		tiempoAreaMin = 4.0
 		tiempoAreaMax = 8.0
 
 		probDisparadorActual = 20
 		probPowerUpActual = 0.2
-	elif distancia >= 1000: 
-		generarAsteroide = true
+	elif distancia <= 2000:
+		probPowerUpActual = 0.0
 
 func GenerarBoss():
 	if bossGenerado:

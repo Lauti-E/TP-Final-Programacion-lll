@@ -16,6 +16,7 @@ velCaida = 50.0
 danColision = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_jqk13")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -26,6 +27,7 @@ texture = ExtResource("1_jqk13")
 scale = Vector2(1.402, 1.35)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("CircleShape2D_0xgun")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

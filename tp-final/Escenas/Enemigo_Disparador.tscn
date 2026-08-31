@@ -13,7 +13,10 @@ velocidadProyectil = 80.0
 danioProyectil = 10
 escenaExplosion = ExtResource("2_80bvk")
 velY = 10.0
+distanciaReduccionVelY = 50.0
+velYFinal = 5.0
 danColision = 10
+danFueraVen = 5
 vidaMax = 100
 energiaOtorgada = 20
 

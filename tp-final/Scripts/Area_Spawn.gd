@@ -11,6 +11,9 @@ var gameManager
 @export var escenaEnemigoDisparador: PackedScene
 @export var cantEnemigos: int = 0
 
+# Referencia al FeedbackEnemigos.
+var feedbackEnemigo
+
 # Variables de spawn.
 @export_range(0, 100) var probDisparador: int = 0
 
@@ -26,6 +29,11 @@ func _on_body_entered(body):
 
 func GenerarEnemigos():
 	gameManager = get_tree().get_first_node_in_group("GameManager")
+	feedbackEnemigo = get_tree().get_first_node_in_group("FeedbackEnemigo")
+
+	print("Area Spawn - carriles: ", cantCarriles)
+
+	feedbackEnemigo.RecibirCarriles(cantCarriles)
 	
 	if escenaEnemigo == null:
 		return
@@ -55,6 +63,9 @@ func GenerarEnemigos():
 		# Crear la cantidad de carriles definidos.
 		var indice = randi() % carrilesDisponibles.size()
 		var carril = carrilesDisponibles[indice]
+
+		# Asignarle el carril al enemigo.
+		enemigo.carril = carril
 		
 		# Definir la posición de los spawns (X, Y).
 		var spawnX = (carril * anchoCarril) + (anchoCarril / 2)

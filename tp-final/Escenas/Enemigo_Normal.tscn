@@ -9,7 +9,10 @@
 script = ExtResource("2_puifg")
 escenaExplosion = ExtResource("3_pclw5")
 velY = 10.0
+distanciaReduccionVelY = 50.0
+velYFinal = 5.0
 danColision = 10
+danFueraVen = 5
 vidaMax = 60
 energiaOtorgada = 10
 

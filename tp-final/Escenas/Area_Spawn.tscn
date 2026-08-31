@@ -16,6 +16,7 @@ cantEnemigos = 3
 probDisparador = 30
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_lxe16")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

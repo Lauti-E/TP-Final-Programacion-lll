@@ -14,11 +14,14 @@ collision_mask = 5
 script = ExtResource("1_rh4lt")
 
 [node name="ColisionFisicas" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_rh4lt")
 
 [node name="AreaDeteccion" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDeteccion"]
+visible = false
 shape = SubResource("RectangleShape2D_nxnwl")
 
 [connection signal="body_entered" from="AreaDeteccion" to="." method="_on_area_deteccion_body_entered"]
