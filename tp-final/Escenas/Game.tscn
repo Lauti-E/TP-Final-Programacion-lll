@@ -59,6 +59,7 @@ corner_radius_bottom_left = 5
 script = ExtResource("1_dawtg")
 velNivel = 50.0
 nivelActual = 1
+distancia = 9800.0
 probPowerUpActual = 0.2
 escenaBoss = ExtResource("2_rl3b6")
 
@@ -86,9 +87,9 @@ escenaArea = ExtResource("8_am5uq")
 [node name="Generador Asteroide" parent="Spawners" instance=ExtResource("9_ipq14")]
 
 [node name="Jugador" parent="." instance=ExtResource("3_rl3b6")]
-position = Vector2(80, 216)
+position = Vector2(80, 166.00002)
 scale = Vector2(0.15, 0.15)
-vidaMax = 20
+vidaMax = 10
 velDash = 200.0
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -149,6 +150,41 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("12_am5uq")
 
+[node name="PantallaFinal" type="Control" parent="UI"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MensajeFinal" type="Label" parent="UI/PantallaFinal"]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 66.0
+offset_right = 100.0
+offset_bottom = 89.0
+scale = Vector2(1.479665, 1.4385965)
+
+[node name="BotonReintentar" type="Button" parent="UI/PantallaFinal"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 105.0
+offset_right = 155.0
+offset_bottom = 145.0
+scale = Vector2(0.6, 0.6)
+text = "REINTENTAR"
+
+[node name="BotonSigLvl" type="Button" parent="UI/PantallaFinal"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 105.0
+offset_right = 155.0
+offset_bottom = 165.0
+scale = Vector2(0.6, 0.6)
+text = "SIGUIENTE 
+NIVEL"
+
 [node name="CanvasPausa" parent="." instance=ExtResource("11_rl3b6")]
 visible = false
 
@@ -183,3 +219,6 @@ offset_right = 160.0
 offset_bottom = 240.0
 texture = ExtResource("6_f0027")
 stretch_mode = 1
+
+[connection signal="pressed" from="UI/PantallaFinal/BotonReintentar" to="GameManager" method="Reintentar"]
+[connection signal="pressed" from="UI/PantallaFinal/BotonSigLvl" to="GameManager" method="SiguienteNivel"]

@@ -122,6 +122,9 @@ func Morir(_daEnergia: bool = false):
 
 		get_tree().current_scene.add_child(explosion)
 	
+	var gameManager: GameManager = get_tree().get_first_node_in_group("GameManager")
+	gameManager.Victoria()
+	
 	queue_free()
 
 func HitFlash():

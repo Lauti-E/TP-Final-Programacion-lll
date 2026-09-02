@@ -1,6 +1,11 @@
 extends Node2D
+class_name GameManager
 
 @onready var menuPausa = $"../CanvasPausa"
+@onready var pantallaFinal = $"../UI/PantallaFinal"
+@onready var mensajeFinal: Label = pantallaFinal.get_node("MensajeFinal")
+
+var partidaTerminada: bool = false
 
 @export var velNivel: float = 0.0
 @export var nivelActual: int = 0
@@ -46,7 +51,7 @@ func _process(delta):
 		GenerarBoss()
 
 func _physics_process(_delta):
-	if Input.is_action_just_pressed("ui_cancel"):
+	if Input.is_action_just_pressed("ui_cancel") and partidaTerminada == false:
 		EnPausa()
 
 func ConfigurarNivel1():
@@ -87,7 +92,7 @@ func GenerarBoss():
 	
 	var boss = escenaBoss.instantiate()
 	var tamVentana = get_viewport_rect().size
-
+	
 	boss.global_position = Vector2(tamVentana.x / 2, -100)
 
 	get_tree().current_scene.add_child(boss)
@@ -102,4 +107,35 @@ func EnPausa():
 		get_tree().paused = true
 		menuPausa.visible = true
 
+func Derrota():
+	partidaTerminada = true
+	pantallaFinal.visible = true
 	
+	var botonSigLvl: Button = pantallaFinal.get_node("BotonSigLvl")
+	botonSigLvl.visible = false
+	
+	mensajeFinal.self_modulate = Color(1, 0, 0)
+	mensajeFinal.text = "DERROTA"
+	get_tree().paused = true
+
+func Victoria():
+	partidaTerminada = true
+	pantallaFinal.visible = true
+	
+	var jugador: Jugador = get_tree().get_first_node_in_group("Player")
+	jugador.set_physics_process(false)
+	jugador.set_process(false)
+	
+	var botonReintentar: Button = pantallaFinal.get_node("BotonReintentar")
+	botonReintentar.visible = false
+	
+	mensajeFinal.self_modulate = Color(0, 1, 0)
+	mensajeFinal.text = "VICTORIA"
+
+func Reintentar():
+	get_tree().paused = false
+	
+	get_tree().reload_current_scene()
+
+func SiguienteNivel():
+	pass

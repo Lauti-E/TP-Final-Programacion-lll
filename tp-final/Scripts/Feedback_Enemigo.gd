@@ -5,8 +5,6 @@ var cantBarras = []
 
 func RecibirCarriles(cantidad: int):
 	cantCarriles = cantidad
-	print("Barras: ", cantBarras.size())
-	print("Carriles: ", cantCarriles)
 
 	if cantBarras.size() == cantCarriles:
 		return
@@ -34,9 +32,10 @@ func ActualizarBarra(carril):
 	var mayorY = 0.0
 
 	for enemigo in get_tree().get_nodes_in_group("Enemigo"):
-		if enemigo.carril == carril:
-			if enemigo.global_position.y > mayorY:
-				mayorY = enemigo.global_position.y
+		if "carril" in enemigo:
+			if enemigo.carril == carril:
+				if enemigo.global_position.y > mayorY:
+					mayorY = enemigo.global_position.y
 	
 	if mayorY == 0:
 		cantBarras[carril].color = Color(1, 0, 0, 0)
